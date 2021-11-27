@@ -17,9 +17,9 @@
     </div>
     <ul class="index-nav fl">
         <li><a href="index.jsp">首页</a></li>
-        <li><a href="../DataTable/index.jsp">关于我们</a></li>
-        <li><a href="../Video/html/index.jsp">业务范围</a></li>
-        <li><a href="../TodoList/index.jsp">产品中心</a></li>
+        <li><a href="../datatable/index.jsp">关于我们</a></li>
+        <li><a href="../videoWeb/html/index.jsp">业务范围</a></li>
+        <li><a href="../todo-list/index.jsp">产品中心</a></li>
         <li><a href="../Statistics/index.jsp">应用案例</a></li>
         <li><a href="news.jsp">新闻资讯</a></li>
         <li><a href="jobs.jsp">人才招聘</a></li>
