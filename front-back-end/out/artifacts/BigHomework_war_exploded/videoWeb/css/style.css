@@ -64,6 +64,24 @@ width: 79%;
     margin-top:5px;
 
 }
+
+.video_1{
+    float: left;
+    height: 80%;
+    width: 60%;
+    padding-top: 9%;
+}
+.video_2{
+    float: left;
+    height: 50%;
+    width: 35%;
+    margin-left: 2%;
+    padding-top: 26%;
+    /* padding-bottom: 25%; */
+    margin-right: 3%;
+}
+
+
 .video_con{
     float: left;
     width: 49%;

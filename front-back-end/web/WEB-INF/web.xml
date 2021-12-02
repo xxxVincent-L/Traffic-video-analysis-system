@@ -24,4 +24,15 @@
         <url-pattern>/user_center_servlet_action</url-pattern>
     </servlet-mapping>
 
+
+
+    <servlet>
+        <servlet-name>file_upload</servlet-name>
+        <servlet-class>maintain.video.FileUpload</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>file_upload</servlet-name>
+        <url-pattern>/file_upload</url-pattern>
+    </servlet-mapping>
+
 </web-app>
