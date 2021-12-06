@@ -50,10 +50,12 @@
             <button onclick="play_all()">播放</button>
             <button onclick="pause_all()">暂停</button>
             <input type="file" id="input_file" name="input_file" accept=".mp4,.webm,.avi">
-            <!-- <button id="upload_button">上传文件</button> -->
-            <video id="video2" width="100%" height="100%">
+            <button id="upload_button">上传文件</button>
+            <!-- <video id="video2" width="100%" height="100%">
                 <source src="" type="video/webm">
-            </video>
+            </video> -->
+            <div id="illegal"style="width:100%;height:100%;overflow: scroll;"></div>
+        
         </div>
 
 
@@ -69,11 +71,9 @@
 <script>
     function play_all(){
         document.getElementById("video1").play();
-        document.getElementById("video2").play();
     }
     function pause_all(){
         document.getElementById("video1").pause();
-        document.getElementById("video2").pause();
     }
     $(document).ready(function () {
         
@@ -103,10 +103,18 @@
                     alert("传上去了！download_url="+downloadUrl+"，attachment_id="+attachmentId);
                     downloadUrl="../../"+downloadUrl;
                     $("#video1").attr('src',downloadUrl);
-                    //TODO:返回视频的url需要
-                    $("#video2").attr('src',downloadUrl);
                     $("#video1")[0].load();
-                    $("#video2")[0].load();
+                    //获取返回的图片url
+                    img_urls=JSON.parse(res.img_urls)
+                    img_urls=img_urls["img_urls"]
+                    console.log(img_urls)
+                    html=""
+                    for(i in img_urls){
+                        html+="<img src='"+img_urls[i]+"'>";
+                    }
+                    $("#illegal").html(html)
+
+                    // $("#video2")[0].load();
                     // $("#download_url").html("download_url="+downloadUrl);
                     // $("#attachment_id").html("attachment_id="+attachmentId);
                     // $("#download_link").attr("href",downloadUrl);
