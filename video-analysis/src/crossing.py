@@ -10,11 +10,12 @@ class crossing:
     white1 = {0: {}, 1: {}}
     yellow1 = {0: {}, 1: {}}
     yellow2 = {0: {}, 1: {}}
+    virtual = {0: {}, 1: {}}
+    light = {0: {}, 1: {}}
 
-    # TODO 根据视频名称确定json文件名
-    # TODO json文件格式修改，以及红绿灯精确定位
-    def __init__(self):
-        jsonPath = r"C:/Users/Y/Desktop/project/detection/crossings/crossing1.json"
+    def __init__(self, name):
+        jsonPath = "C:\\Users\\Y\\Desktop\\project\\detection\\crossings\\"
+        jsonPath += name+".json"
         jsonfile = open(jsonPath, 'r')
         data = json.load(jsonfile)
         for i in data:
@@ -34,6 +35,19 @@ class crossing:
                 self.yellow2[0]['y'] = list(i.values())[0][0]['y'] * scan_y
                 self.yellow2[1]['x'] = list(i.values())[0][1]['x'] * scan_x
                 self.yellow2[1]['y'] = list(i.values())[0][1]['y'] * scan_y
+            if key == "light":
+                self.light[0]['x'] = list(i.values())[0][0]['x'] * scan_x
+                self.light[0]['y'] = list(i.values())[0][0]['y'] * scan_y
+                self.light[1]['x'] = list(i.values())[0][1]['x'] * scan_x
+                self.light[1]['y'] = list(i.values())[0][1]['y'] * scan_y
+        self.virtual[0]['x'] = self.yellow1[1]['x']
+        self.virtual[0]['y'] = self.yellow1[1]['y']
+        self.virtual[1]['x'] = self.yellow2[0]['x']
+        self.virtual[1]['y'] = self.yellow2[0]['y']
+
+
+
+
 #     def isInArea(self, x, y, w, h):
 #         # 判断车辆是否在我们所检测的区域内
 #         count = 0

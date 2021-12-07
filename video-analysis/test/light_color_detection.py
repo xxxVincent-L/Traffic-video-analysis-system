@@ -8,7 +8,7 @@ if __name__ == '__main__':
     HEIGHT = 560
     scan_x = float(WIDTH) / float(1920)
     scan_y = float(HEIGHT) / float(1080)
-    jsonPath = r"C:/Users/Y/Desktop/project/detection/crossings/crossing1.json"
+    jsonPath = r"C:/Users/Y/Desktop/project/detection/crossings/S001.json"
     jsonfile = open(jsonPath, 'r')
     data = json.load(jsonfile)
     for i in data:
@@ -48,7 +48,7 @@ if __name__ == '__main__':
             y3_light1 = list(i.values())[0][0]['y'] * scan_y
             x3_light2 = list(i.values())[0][1]['x'] * scan_x
             y3_light2 = list(i.values())[0][1]['y'] * scan_y
-    picPath = "C:\\Users\\Y\\Desktop\\project\\detection\\frame\\crossing1-1.png"
+    picPath = "C:\\Users\\Y\\Desktop\\project\\detection\\frame\\S001-S002-1.png"
     img = cv2.imread(picPath)
     img = cv2.resize(img, (WIDTH, HEIGHT))
     #cv2.line(img, (int(x1_white1), int(y1_white1)), (int(x1_white2), int(y1_white2)), (0, 0, 255), 2)

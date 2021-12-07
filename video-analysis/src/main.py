@@ -2,31 +2,36 @@ import cv2
 import os.path
 import numpy as np
 import dlib
-# import time
-# import threading
-# import math
-# import pymysql
-# import sys
-# import json
-import src.crossing as crossing
-import src.common as common
+import time
+import threading
+import math
+import pymysql
+import sys
+import json
+from hyperlpr import *
+
+import crossing
+import common
 
 image_count = 1  # 图片计数
-frame_count = 1  # 帧数计数
+frame_count = 1  # 帧数计2
 
-video_path = "C:\\Users\\Y\\Desktop\\project\\detection\\video\\crossing1-3.mp4"  # 视频路径
-# video_path = "../video/1.mp4"
+video_path_dir = "C:\\Users\\Y\\Desktop\\project\\detection\\video\\"  # 视频路径
+# video_path = "../video/S002-1.mp4"
 classifier_path = "C:\\Users\\Y\\Desktop\\project\\detection\\classifier\\myhaar.xml"  # 分类器路径
 # classifier_path="../classifier/cars_detection.xml"
 
 carCascade = cv2.CascadeClassifier(classifier_path)
-
+info2store = {}
+offense = {0: "Speeding", 1: "Parking", 2: "Retrograde", 3: "PressYellowLine", 4: "Light"}
 # 标点时的点击计数
 leftDown_count = 0
 
 # carWidth用于测算比例尺
 WIDTH = 720
 HEIGHT = 560
+scan_x = float(WIDTH) / float(1920)
+scan_y = float(HEIGHT) / float(1080)
 
 
 # 使用第一张图片作为标记白实线和双黄线的样例
@@ -35,21 +40,24 @@ HEIGHT = 560
 # imageToMark = cv2.resize(imageToMark, (WIDTH, HEIGHT))
 
 
-def trackMultipleObjects(video, crossing):
+def trackMultipleObjects(video, crossing, out):
+    global info2store
+    info2store = {}
     rectangleColor = (0, 255, 0)
     rectangleColor_retrograde = (0, 0, 255)
-    rectangleColor_stop = (0, 0, 0)
+    rectangleColor_stop = (255, 0, 0)
     rectangleColor_overspeed = (255, 0, 0)
+    rectangleColor_onlines = (0, 0, 255)
+    rectangleColor_redlight = (255, 0, 0)
     frameCounter = 0
     currentCarID = 0
     fps = 0
 
-    carcounter = 0  # 为统计车流量而设置的变量
-    speed = 0
-
-    #  TODO 违章记录统计，相同车辆相同违章行为不重复计算
     carTracker = {}
     carNumbers = {}
+    offenseRecord = {}
+    stop = {}
+    retrograde = {}
     carLocation1 = {}
     carLocation2 = {}
 
@@ -58,17 +66,18 @@ def trackMultipleObjects(video, crossing):
         rc, image = video.read()
         if type(image) == type(None):
             break
-
+        backups = image.copy()
         image = cv2.resize(image, (WIDTH, HEIGHT))
-        resultImage = image.copy()
-
         frameCounter = frameCounter + 1
-
+        if frameCounter == 1:
+            resultImage = image.copy()
+        if frameCounter % 3 == 0:
+            resultImage = image.copy()
         carIDtoDelete = []
         for carID in carTracker.keys():
             trackingQuality = carTracker[carID].update(image)
-
-            if trackingQuality < 7:
+            if trackingQuality < 7 or carTracker[carID].get_position().width() > 150 or carTracker[
+                carID].get_position().height() > 150:
                 carIDtoDelete.append(carID)
                 carcounter += 1
 
@@ -77,12 +86,13 @@ def trackMultipleObjects(video, crossing):
             print('Removing carID ' + str(carID) + ' previous location.')
             print('Removing carID ' + str(carID) + ' current location.')
             carTracker.pop(carID, None)
+            offenseRecord.pop(carID)
+            stop.pop(carID)
+            retrograde.pop(carID)
             carLocation1.pop(carID, None)
             carLocation2.pop(carID, None)
 
-        # TODO 违章记录截图
-        # TODO 此处加入车牌识别
-        if not (frameCounter % 3):
+        if not frameCounter % 3:
             gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
             cars = carCascade.detectMultiScale(gray, 1.1, 13, 0, (24, 24))
 
@@ -113,100 +123,198 @@ def trackMultipleObjects(video, crossing):
                         matchCarID = carID
 
                 if matchCarID is None:
-                    print('Creating new tracker ' + str(currentCarID))
-
-                    tracker = dlib.correlation_tracker()
-                    tracker.start_track(image, dlib.rectangle(x, y, x + w, y + h))
-
-                    carTracker[currentCarID] = tracker
-                    carLocation1[currentCarID] = [x, y, w, h]
-                    currentCarID = currentCarID + 1
-
-        for carID in carTracker.keys():
-            trackedPosition = carTracker[carID].get_position()
-
-            t_x = int(trackedPosition.left())
-            t_y = int(trackedPosition.top())
-            t_w = int(trackedPosition.width())
-            t_h = int(trackedPosition.height())
-
-            cv2.rectangle(resultImage, (t_x, t_y), (t_x + t_w, t_y + t_h), rectangleColor, 2)
-            cv2.putText(resultImage, 'CAR_%s' % carID, (t_x, t_y), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (70, 70, 200), 2)
-
-            # speed estimation
-            carLocation2[carID] = [t_x, t_y, t_w, t_h]
-
-        # 获取帧率
-        fps = video.get(cv2.CAP_PROP_FPS)
-
-        # 输出车流量
-        # TODO 车流量算法有错
-        cv2.putText(resultImage, 'traffic flow:' + str(int(len(offenseRecord)/(3/fps))) + '/min', (450, 30),
-                    cv2.FONT_HERSHEY_SIMPLEX, 0.75, (0, 0, 255), 2)
-        print(currentCarID)
-        print(fps)
-        print(frameCounter)
-        for i in carLocation1.keys():
-            trackedPosition = carTracker[i].get_position()
-            t_x = int(trackedPosition.left())
-            t_y = int(trackedPosition.top())
-
-            if frameCounter % 3 == 0:
-                speed = 0
-                [x1, y1, w1, h1] = carLocation1[i]
-                [x2, y2, w2, h2] = carLocation2[i]
-
-                # 逆行检测
-                # TODO 逆行检测算法有错
-                if y2 - y1 >= 2:
-                    cv2.rectangle(resultImage, (x2, y2), (x2 + w2, y2 + h2), rectangleColor_retrograde, 2)
-
-                # 测速过程
-                carLocation1[i] = [x2, y2, w2, h2]
-                if [x1, y1, w1, h1] != [x2, y2, w2, h2]:
-                    speed = common.estimateSpeed([x1, y1, w1, h1], [x2, y2, w2, h2], 100, fps)
-                    if speed <= 1.05:
-                        speed = 0
-                    else:
-                        speed *= 5
-                    if speed > 60:
-                        # print(str(i) + "号车超速")
-                        cv2.rectangle(resultImage, (x2, y2), (x2 + w2, y2 + h2), rectangleColor_overspeed, 2)
-                    if speed == 0:
+                    if common.whichSection(crossing, [x, y, w, h]) == 1 and w < 100:
                         pass
-                        # 违规停车检测
-                        # TODO 违章停车计算不准确
-                        # print(str(i) + "号车违规停车")
-                        # if crossing.isInArea(x2, y2, w2, h2):
-                        # cv2.rectangle(resultImage, (x2, y2), (x2 + w2, y2 + h2), rectangleColor_stop, 2)
-                    # print('CarID ' + str(i) + ' speed is ' + str("%.2f" % round(speed, 2)) + ' km/h.\n')
+                    else:
+                        print('Creating new tracker ' + str(currentCarID))
+                        offenseRecord[currentCarID] = []
+                        stop[currentCarID] = 0
+                        retrograde[currentCarID] = 0
 
-                cv2.putText(resultImage, 'speed:%s' % str("%.2f" % round(speed, 2)) + 'Km/h', (t_x, t_y + 15),
-                            cv2.FONT_HERSHEY_SIMPLEX, 0.5, (70, 70, 200), 2)
+                        tracker = dlib.correlation_tracker()
+                        tracker.start_track(image, dlib.rectangle(x, y, x + w, y + h))
 
-                # TODO 检测白实线
-                # TODO 检测双黄线改:在哪一条车道，根据点来判断，限制到线段
-                # TODO 转弯车辆处理（x分量变化大于y分量变化）
-
-                # 压双黄线检测
-                if common.onLines(crossing, [x2, y2, x2 + w2, y2 + h2]):
-                    print('CarID ' + str(i) + '车辆压双黄线')
-                    print("-->Bounding Box坐标为:", [x2, y2, x2 + w2, y2 + h2])
-
-                # TODO 检测闯红灯
+                        carTracker[currentCarID] = tracker
+                        carLocation1[currentCarID] = [x, y, w, h]
+                        currentCarID = currentCarID + 1
         if frameCounter % 3 == 0:
-            cv2.imshow('result', resultImage)
+            license_res = HyperLPR_plate_recognition(backups)
+            for carID in carTracker.keys():
+                trackedPosition = carTracker[carID].get_position()
 
-        if cv2.waitKey(33) == 27:
-            break
+                t_x = int(trackedPosition.left())
+                t_y = int(trackedPosition.top())
+                t_w = int(trackedPosition.width())
+                t_h = int(trackedPosition.height())
 
+                cv2.rectangle(resultImage, (t_x, t_y), (t_x + t_w, t_y + t_h), rectangleColor, 2)
+                cv2.putText(resultImage, 'CAR_%s' % carID, (t_x, t_y), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (70, 70, 200), 2)
+
+                carLocation2[carID] = [t_x, t_y, t_w, t_h]
+
+            # 获取帧率
+            fps = video.get(cv2.CAP_PROP_FPS)
+
+            # 输出车流量
+            cv2.putText(resultImage,
+                        'traffic flow:' + str(int(len(offenseRecord) / (3 / fps))) + '/min', (450, 30),
+                        cv2.FONT_HERSHEY_SIMPLEX, 0.75, (0, 0, 255), 2)
+            for i in carLocation1.keys():
+                trackedPosition = carTracker[i].get_position()
+                t_x = int(trackedPosition.left())
+                t_y = int(trackedPosition.top())
+
+                if frameCounter % 3 == 0:
+                    speed = 0
+                    [x1, y1, w1, h1] = carLocation1[i]
+                    [x2, y2, w2, h2] = carLocation2[i]
+
+                    if i in info2store.keys() and "license" not in info2store[i].keys():
+                        for index, item in enumerate(license_res):
+                            if item[2][0] * scan_x > x2 and item[2][1] * scan_y > y2 and item[2][
+                                2] * scan_x < x2 + w2 and item[2][
+                                3] * scan_y < y2 + h2:
+                                info2store[i]["license"] = item[0][:7]
+
+                    # 逆行检测
+                    if common.retrograde(crossing, carLocation1[i], carLocation2[i]):
+                        if 2 in offenseRecord[i]:
+                            cv2.rectangle(resultImage, (x2, y2), (x2 + w2, y2 + h2), rectangleColor_onlines, 2)
+                        else:
+                            if retrograde[i] >= 3:
+                                offenseRecord[i].append(2)
+                                save_image = image.copy()
+                                cv2.rectangle(save_image, (x2, y2), (x2 + w2, y2 + h2), rectangleColor_onlines, 2)
+                                info2store[i] = {"record": 2, "image": save_image.copy()}
+                                for index, item in enumerate(license_res):
+                                    if item[2][0] * scan_x > x2 and item[2][1] * scan_y > y2 and item[2][
+                                        2] * scan_x < x2 + w2 and item[2][
+                                        3] * scan_y < y2 + h2:
+                                        info2store[i]["license"] = item[0][:7]
+                                print('CarID ' + str(i) + '车辆逆行')
+                                print("-->Bounding Box坐标为:", [x2, y2, x2 + w2, y2 + h2])
+                                cv2.rectangle(resultImage, (x2, y2), (x2 + w2, y2 + h2), rectangleColor_retrograde, 2)
+                            else:
+                                retrograde[i] += 1
+                    else:
+                        retrograde[i] = 0
+
+                    # 测速过程
+                    carLocation1[i] = [x2, y2, w2, h2]
+                    speed = common.estimateSpeed([x1, y1, w1, h1], [x2, y2, w2, h2], fps)
+                    speed *= 3.6
+                    if speed > 60:
+                        if 0 in offenseRecord[i]:
+                            cv2.rectangle(resultImage, (x2, y2), (x2 + w2, y2 + h2), rectangleColor_overspeed, 2)
+                        else:
+                            offenseRecord[i].append(0)
+                            save_image = image.copy()
+                            cv2.rectangle(save_image, (x2, y2), (x2 + w2, y2 + h2), rectangleColor_onlines, 2)
+                            info2store[i] = {"record": 0, "image": save_image.copy()}
+                            for index, item in enumerate(license_res):
+                                if item[2][0] * scan_x > x2 and item[2][1] * scan_y > y2 and item[2][
+                                    2] * scan_x < x2 + w2 and item[2][
+                                    3] * scan_y < y2 + h2:
+                                    info2store[i]["license"] = item[0][:7]
+                            print('CarID ' + str(i) + '车辆超速')
+                            print("-->Bounding Box坐标为:", [x2, y2, x2 + w2, y2 + h2])
+                            cv2.rectangle(resultImage, (x2, y2), (x2 + w2, y2 + h2), rectangleColor_overspeed, 2)
+
+                    # 违规停车检测
+                    light_image = image[int(crossing.light[1]['y']):int(crossing.light[0]['y']),
+                                  int(crossing.light[0]['x']):int(crossing.light[1]['x'])]
+                    if speed == 0 and not (
+                            common.red_green_yellow(light_image, False) == 1 and common.whichSection(crossing,
+                                                                                                     [x2, y2, w2,
+                                                                                                      h2]) == 1 and common.whichSide(
+                        crossing.yellow1, x2 + w2, y2 + h2) == 1 and common.whichSide(crossing.yellow1, x2,
+                                                                                      y2 + w2) == 1) and not \
+                            crossing.yellow2[0]['y'] > y2:
+                        stop[i] += 1
+                        if stop[i] >= 5 and 1 not in offenseRecord[i]:
+                            offenseRecord[i].append(1)
+                            save_image = image.copy()
+                            cv2.rectangle(save_image, (x2, y2), (x2 + w2, y2 + h2), rectangleColor_onlines, 2)
+                            info2store[i] = {"record": 1, "image": save_image.copy()}
+                            for index, item in enumerate(license_res):
+                                if item[2][0] * scan_x > x2 and item[2][1] * scan_y > y2 and item[2][
+                                    2] * scan_x < x2 + w2 and item[2][
+                                    3] * scan_y < y2 + h2:
+                                    info2store[i]["license"] = item[0][:7]
+                            print(str(i) + "号车违规停车")
+                            print("-->Bounding Box坐标为:", [x2, y2, x2 + w2, y2 + h2])
+                        if stop[i] >= 5:
+                            cv2.rectangle(resultImage, (x2, y2), (x2 + w2, y2 + h2), rectangleColor_stop, 2)
+                    else:
+                        stop[i] = 0
+
+                    cv2.putText(resultImage, 'speed:%s' % str("%.2f" % round(speed, 2)) + 'Km/h', (t_x, t_y + 15),
+                                cv2.FONT_HERSHEY_SIMPLEX, 0.5, (70, 70, 200), 2)
+
+                    # 压双黄线检测
+                    if common.onLines(crossing, [x2, y2, w2, h2]):
+                        if 3 in offenseRecord[i]:
+                            if info2store[i]["timer"] <= 3:
+                                save_image = image.copy()
+                                cv2.rectangle(save_image, (x2, y2), (x2 + w2, y2 + h2), rectangleColor_retrograde, 2)
+                                info2store[i]["image"] = save_image.copy()
+                                info2store[i]["timer"] += 1
+                        else:
+                            offenseRecord[i].append(3)
+                            save_image = image.copy()
+                            cv2.rectangle(save_image, (x2, y2), (x2 + w2, y2 + h2), rectangleColor_onlines, 2)
+                            info2store[i] = {"record": 3, "image": save_image.copy(), "timer": 0}
+                            for index, item in enumerate(license_res):
+                                if item[2][0] * scan_x > x2 and item[2][1] * scan_y > y2 and item[2][
+                                    2] * scan_x < x2 + w2 and item[2][
+                                    3] * scan_y < y2 + h2:
+                                    info2store[i]["license"] = item[0][:7]
+                            print(str(i) + '号车辆压双黄线')
+                            print("-->Bounding Box坐标为:", [x2, y2, x2 + w2, y2 + h2])
+                        cv2.rectangle(resultImage, (x2, y2), (x2 + w2, y2 + h2), rectangleColor_onlines, 2)
+
+                    # 闯红灯检测
+                    if common.redLight(crossing, [x2, y2, w2, h2], light_image):
+                        if 4 in offenseRecord[i]:
+                            if info2store[i]["timer"] <= 3:
+                                save_image = image.copy()
+                                cv2.rectangle(save_image, (x2, y2), (x2 + w2, y2 + h2), rectangleColor_retrograde, 2)
+                                info2store[i]["image"] = save_image.copy()
+                                info2store[i]["timer"] += 1
+                        else:
+                            offenseRecord[i].append(4)
+                            save_image = image.copy()
+                            cv2.rectangle(save_image, (x2, y2), (x2 + w2, y2 + h2), rectangleColor_onlines, 2)
+                            info2store[i] = {"record": 4, "image": save_image.copy(), "timer": 0}
+                            for index, item in enumerate(license_res):
+                                if item[2][0] * scan_x > x2 and item[2][1] * scan_y > y2 and item[2][
+                                    2] * scan_x < x2 + w2 and item[2][
+                                    3] * scan_y < y2 + h2:
+                                    info2store[i]["license"] = item[0][:7]
+                            print('CarID ' + str(i) + '车辆闯红灯')
+                            print("-->Bounding Box坐标为:", [x2, y2, x2 + w2, y2 + h2])
+                        cv2.rectangle(resultImage, (x2, y2), (x2 + w2, y2 + h2), rectangleColor_redlight, 2)
+            # cv2.imshow('result', resultImage)
+        out.write(resultImage)
+        # if cv2.waitKey(33) == 27:
+        # break
     cv2.destroyAllWindows()
 
 
 if __name__ == '__main__':
-    # print(sys.argv[1])
-    video = cv2.VideoCapture(video_path)
-    scan_x = float(WIDTH) / float(1536)
-    scan_y = float(HEIGHT) / float(480)
-    temp_crossing = crossing.crossing()
-    trackMultipleObjects(video, temp_crossing)
+    video_names = sorted(os.listdir(video_path_dir))
+    for video_name in video_names[4:5]:
+        video_path = os.path.join(video_path_dir, video_name)
+        video = cv2.VideoCapture(video_path)
+        fourcc = cv2.VideoWriter_fourcc(*"mp4v")
+        out = cv2.VideoWriter("C:\\Users\\Y\\Desktop\\project\\detection\\result\\" + video_name.split(".")[0] + ".mp4",
+                              fourcc, video.get(cv2.CAP_PROP_FPS),
+                              (720, 560))
+        temp_crossing = crossing.crossing(video_path.split("\\")[-1].split("-")[0])
+        trackMultipleObjects(video, temp_crossing, out)
+        video.release()
+        out.release()
+        address = video_name.split("-")[0]
+        # time = 1.0*frame/fps/60  min
+        # time += cur_time
+        #
