@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.IOException;
+import java.net.URLEncoder;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -109,6 +110,11 @@ public class FileUpload extends HttpServlet {
                                 }else{
                                     SimpleDateFormat df = new SimpleDateFormat("yyyyMMddHHmmss");
                                     String newFileName = df.format(new Date()) + "_" + new Random().nextInt(1000) + "." + fileExt;
+
+
+                                    newFileName=fileName;
+
+
                                     try{
                                         File uploadedFile = new File(rootPath+savePath, newFileName);
                                         item.write(uploadedFile);
@@ -138,6 +144,7 @@ public class FileUpload extends HttpServlet {
         //平时用的iso现在还没搞懂如何去加密，这个比较简单一点。
         final byte[] textByte = absPath.getBytes("UTF-8");
         final String encodedText = encoder.encodeToString(textByte);
+//        String encodedText= URLEncoder.encode(absPath,"utf-8");
         String parameter=encodedText;
         String s=HttpRequest.sendGet("http://localhost:8081", parameter);
         System.out.println(s);
@@ -154,6 +161,7 @@ public class FileUpload extends HttpServlet {
                 json.put("result_msg","ok");
                 json.put("download_url",downloadUrl);
                 json.put("attachment_id",attachmentId);
+                json.put("img_urls",s);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
