@@ -10,11 +10,18 @@ import sys
 import json
 from hyperlpr import *
 
+
 import crossing
 import common
+import DbRelated
+
+
+
 
 image_count = 1  # 图片计数
 frame_count = 1  # 帧数计2
+
+id_counter = 0
 
 video_path_dir = "C:\\Users\\Y\\Desktop\\project\\detection\\video\\"  # 视频路径
 # video_path = "../video/S002-1.mp4"
@@ -40,9 +47,8 @@ scan_y = float(HEIGHT) / float(1080)
 # imageToMark = cv2.resize(imageToMark, (WIDTH, HEIGHT))
 
 
-def trackMultipleObjects(video, crossing, out):
+def trackMultipleObjects(video, crossing):
     global info2store
-    info2store = {}
     rectangleColor = (0, 255, 0)
     rectangleColor_retrograde = (0, 0, 255)
     rectangleColor_stop = (255, 0, 0)
@@ -185,7 +191,8 @@ def trackMultipleObjects(video, crossing, out):
                                 offenseRecord[i].append(2)
                                 save_image = image.copy()
                                 cv2.rectangle(save_image, (x2, y2), (x2 + w2, y2 + h2), rectangleColor_onlines, 2)
-                                info2store[i] = {"record": 2, "image": save_image.copy()}
+                                time = frameCounter / fps
+                                info2store[i] = {"record": 2, "image": save_image.copy(),"increment_time": time}
                                 for index, item in enumerate(license_res):
                                     if item[2][0] * scan_x > x2 and item[2][1] * scan_y > y2 and item[2][
                                         2] * scan_x < x2 + w2 and item[2][
@@ -210,7 +217,8 @@ def trackMultipleObjects(video, crossing, out):
                             offenseRecord[i].append(0)
                             save_image = image.copy()
                             cv2.rectangle(save_image, (x2, y2), (x2 + w2, y2 + h2), rectangleColor_onlines, 2)
-                            info2store[i] = {"record": 0, "image": save_image.copy()}
+                            time = frameCounter / fps
+                            info2store[i] = {"record": 0, "image": save_image.copy(), "increment_time": time}
                             for index, item in enumerate(license_res):
                                 if item[2][0] * scan_x > x2 and item[2][1] * scan_y > y2 and item[2][
                                     2] * scan_x < x2 + w2 and item[2][
@@ -235,7 +243,8 @@ def trackMultipleObjects(video, crossing, out):
                             offenseRecord[i].append(1)
                             save_image = image.copy()
                             cv2.rectangle(save_image, (x2, y2), (x2 + w2, y2 + h2), rectangleColor_onlines, 2)
-                            info2store[i] = {"record": 1, "image": save_image.copy()}
+                            time = frameCounter / fps
+                            info2store[i] = {"record": 1, "image": save_image.copy(), "increment_time": time}
                             for index, item in enumerate(license_res):
                                 if item[2][0] * scan_x > x2 and item[2][1] * scan_y > y2 and item[2][
                                     2] * scan_x < x2 + w2 and item[2][
@@ -263,7 +272,8 @@ def trackMultipleObjects(video, crossing, out):
                             offenseRecord[i].append(3)
                             save_image = image.copy()
                             cv2.rectangle(save_image, (x2, y2), (x2 + w2, y2 + h2), rectangleColor_onlines, 2)
-                            info2store[i] = {"record": 3, "image": save_image.copy(), "timer": 0}
+                            time = frameCounter / fps
+                            info2store[i] = {"record": 3, "image": save_image.copy(), "increment_time": time, "timer": 0}
                             for index, item in enumerate(license_res):
                                 if item[2][0] * scan_x > x2 and item[2][1] * scan_y > y2 and item[2][
                                     2] * scan_x < x2 + w2 and item[2][
@@ -280,12 +290,14 @@ def trackMultipleObjects(video, crossing, out):
                                 save_image = image.copy()
                                 cv2.rectangle(save_image, (x2, y2), (x2 + w2, y2 + h2), rectangleColor_retrograde, 2)
                                 info2store[i]["image"] = save_image.copy()
+
                                 info2store[i]["timer"] += 1
                         else:
                             offenseRecord[i].append(4)
                             save_image = image.copy()
                             cv2.rectangle(save_image, (x2, y2), (x2 + w2, y2 + h2), rectangleColor_onlines, 2)
-                            info2store[i] = {"record": 4, "image": save_image.copy(), "timer": 0}
+                            time = frameCounter / fps
+                            info2store[i] = {"record": 4, "image": save_image.copy(), "increment_time": time, "timer": 0}
                             for index, item in enumerate(license_res):
                                 if item[2][0] * scan_x > x2 and item[2][1] * scan_y > y2 and item[2][
                                     2] * scan_x < x2 + w2 and item[2][
@@ -295,7 +307,7 @@ def trackMultipleObjects(video, crossing, out):
                             print("-->Bounding Box坐标为:", [x2, y2, x2 + w2, y2 + h2])
                         cv2.rectangle(resultImage, (x2, y2), (x2 + w2, y2 + h2), rectangleColor_redlight, 2)
             # cv2.imshow('result', resultImage)
-        out.write(resultImage)
+        # out.write(resultImage)
         # if cv2.waitKey(33) == 27:
         # break
     cv2.destroyAllWindows()
@@ -303,18 +315,33 @@ def trackMultipleObjects(video, crossing, out):
 
 if __name__ == '__main__':
     video_names = sorted(os.listdir(video_path_dir))
-    for video_name in video_names[4:5]:
+    # print(video_names)
+    for video_name in video_names[2:3]:
         video_path = os.path.join(video_path_dir, video_name)
+        print(video_path)
+        info2store = {}
+        info2store["video_path"] = video_path
+        info2store["id_counter"] = id_counter
+
+        # print(info2store["video_path"])
         video = cv2.VideoCapture(video_path)
         fourcc = cv2.VideoWriter_fourcc(*"mp4v")
-        out = cv2.VideoWriter("C:\\Users\\Y\\Desktop\\project\\detection\\result\\" + video_name.split(".")[0] + ".mp4",
-                              fourcc, video.get(cv2.CAP_PROP_FPS),
-                              (720, 560))
-        temp_crossing = crossing.crossing(video_path.split("\\")[-1].split("-")[0])
-        trackMultipleObjects(video, temp_crossing, out)
+        # out = cv2.VideoWriter("C:\\Users\\Y\\Desktop\\project\\detection\\result\\" + video_name.split(".")[0] + ".mp4",
+        #                       fourcc, video.get(cv2.CAP_PROP_FPS),
+        #                       (720, 560))
+        temp_crossing = crossing.crossing(video_path.split("\\")[-1].split("_")[-1].split("-")[0])
+        # info2store["video_path"]  = video_path
+        trackMultipleObjects(video, temp_crossing)
+        # print(info2store.keys())
         video.release()
-        out.release()
+        # out.release()
         address = video_name.split("-")[0]
-        # time = 1.0*frame/fps/60  min
-        # time += cur_time
-        #
+
+
+
+        # 数据库相关部分
+
+        id_counter = DbRelated.start_DB(info2store)
+
+
+
