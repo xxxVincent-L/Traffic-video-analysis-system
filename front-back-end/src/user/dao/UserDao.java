@@ -328,5 +328,37 @@ public class UserDao {
         json.put("result_msg",resultMsg);
         json.put("result_code",resultCode);
     }
+
+    public void initial_dashboard(Data data, JSONObject json) throws JSONException, SQLException {
+        String resultMsg = "ok";
+        int resultCode = 0;
+        List jsonList = new ArrayList();
+        String userName = data.getParam().getString("username");
+        String email = data.getParam().getString("email");
+        String password = data.getParam().getString("password");
+        String action = data.getParam().getString("action");
+
+        //密码加密
+        String Password = getMD5Str(password);
+
+        DbRemote queryDb = new DbRemote("yjykfsj2021");
+        String sql = "update xm02_user_file set password='" + Password +"' where user_name='" + userName+"'";
+        queryDb.showDebug("[login]构造的sql语句是：" +sql);
+        try{
+            queryDb.executeUpdate(sql);
+            json.put("reset_ok",true);
+        }catch (Exception e){
+            e.printStackTrace();
+            queryDb.showDebug("[queryRecord]查询数据库出现错误："+sql);
+            resultCode = 10;
+            resultMsg ="查询数据库出现错误!" +e.getMessage();
+        }
+        queryDb.close();
+
+        json.put("aaData",jsonList);
+        json.put("action",action);
+        json.put("result_msg",resultMsg);
+        json.put("result_code",resultCode);
+    }
 }
 

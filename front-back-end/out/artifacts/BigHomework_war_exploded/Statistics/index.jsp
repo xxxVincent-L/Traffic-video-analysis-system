@@ -10,7 +10,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>山西省交通大数据分析平台</title>
+    <title>交通大数据分析平台</title>
     <!--设置是否为缩放模式 -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- 新 Bootstrap 核心 CSS 文件 -->
@@ -48,7 +48,7 @@
             <div class="visual_title">
                 <span>交通流量</span>
                 <img src="images/ksh33.png">
-            </div>
+            </div>违规停放数（起）
             <div class="visual_chart" id="main1">
 
             </div>
@@ -135,42 +135,30 @@
         <div class="visual_conTop">
             <div class="visual_conTop_box visual_conTop1">
                 <div>
-                    <h3>当前警情数(起)</h3>
-                    <p>67</p>
-                    <div class="conTop_smil">
-                        <a class="sz">日环比:<span>+3%</span><i class="fa fa-long-arrow-up"></i></a>
-                        <a class="xd">周环比:<span>-2%</span><i class="fa fa-long-arrow-down"></i></a>
-                    </div>
+                    <h3>违规停放数（起）</h3>
+                    <p id="locate_wrong">1</p>
                 </div>
             </div>
             <div class="visual_conTop_box visual_conTop2">
                 <div>
-                    <h3>区域拥堵指数</h3>
-                    <p>1.4</p>
+                    <h3>闯红灯数（起）</h3>
+                    <p id="red_light"></p>
                     <div class="conTop_smil">
                         <a class="">缓行</a>
-                        <a class="">平均车速<span>120</span>KM/H</i></a>
+                        <a class="">平均车速<span>120</span>KM/H</a>
                     </div>
                 </div>
             </div>
             <div class="visual_conTop_box visual_conTop1">
                 <div>
-                    <h3>当前警情数(起)</h3>
-                    <p>99</p>
-                    <div class="conTop_smil">
-                        <a class="sz">日环比:<span>+3%</span><i class="fa fa-long-arrow-up"></i></a>
-                        <a class="xd">周环比:<span>-2%</span><i class="fa fa-long-arrow-down"></i></a>
-                    </div>
+                    <h3>压双黄线数（起）</h3>
+                    <p id="on_yellow_line"></p>
                 </div>
             </div>
             <div class="visual_conTop_box visual_conTop2">
                 <div>
-                    <h3>当前警情数(起)</h3>
-                    <p>7421</p>
-                    <div class="conTop_smil">
-                        <a class="null">null</a>
-                        <a class="xd">月环比:<span>-2%</span><i class="fa fa-long-arrow-down"></i></a>
-                    </div>
+                    <h3>逆行数（起）</h3>
+                    <p id="opposite_run"></p>
                 </div>
             </div>
             <div class="clear"></div>
@@ -341,6 +329,22 @@
     //收费站收费量
     var myChart9 = echarts.init(document.getElementById('main9'));
     myChart9.setOption(option9);
+
+    var initialpage = function(){
+        var data={};
+        data.action="initial_dashboard";
+        $.post("../../user_center_servlet_action",data,function(json){
+            console.log(JSON.stringify(json));
+            if(json.result_code==0){
+                $("#locate_wrong").html(json.gps_average_speed +"辆");
+                $('#red_light').html(json.total_price +"辆");
+                $("#on_yellow_line").html(json.count_chengdu +"辆");
+                $("#opposite_run").html(1);
+            }
+        })
+    }
+
+    window.onload=initialpage(); //初始化界面，用于加载dashboard
 </script>
 </body>
 </html>

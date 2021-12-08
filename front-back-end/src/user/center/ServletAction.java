@@ -57,6 +57,15 @@ public class ServletAction extends HttpServlet {
 				}
 			}
 
+			if (action.equals("initial_dashboard")) {
+				actionOk=true;
+				try {
+					initial_dashboard(request, response, json);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+
 			if (action.equals("insert_user_information")) {
 				actionOk=true;
 				try {
@@ -237,6 +246,12 @@ public class ServletAction extends HttpServlet {
 		showDebug("收到了数据："+data.getParam().getString("email"));
 		showDebug("收到了数据："+data.getParam().getString("password"));
 		dao.reset_user_password(data,json);
+	}
+
+	private void initial_dashboard(HttpServletRequest request, HttpServletResponse response,JSONObject json) throws JSONException, SQLException {
+		UserDao dao=new UserDao();
+		Data data=getPageParameters(request,response,json);
+		dao.initial_dashboard(data,json);
 	}
 }
 

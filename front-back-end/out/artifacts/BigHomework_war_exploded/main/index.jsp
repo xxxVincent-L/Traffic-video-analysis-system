@@ -3,11 +3,16 @@
 <html lang="zh-CN">
 <head>
     <meta charset="utf-8">
-    <title>首页 - 炫酷的科技公司静态html模板 - xxx</title>
+    <title>XM02-小组交通视频分析平台</title>
     <link rel="stylesheet" type="text/css" href="./css/style.css" />
     <link rel="stylesheet" type="text/css" href="./css/common.css">
     <link rel="stylesheet" href="http://www.5imoban.net/download/swiper/swiper-4.4.2.min.css" />
     <link rel="stylesheet" type="text/css" href="./css/animate.min.css">
+    <style>
+        strong{
+            font-size: 20px;
+        }
+    </style>
 </head>
 
 <body>
@@ -17,14 +22,17 @@
     </div>
     <ul class="index-nav fl">
         <li><a href="index.jsp">首页</a></li>
-        <li><a href="../datatable/index.jsp">关于我们</a></li>
-        <li><a href="../videoWeb/html/index.jsp">业务范围</a></li>
-        <li><a href="../todo-list/index.jsp">产品中心</a></li>
-        <li><a href="../Statistics/index.jsp">应用案例</a></li>
-        <li><a href="news.jsp">新闻资讯</a></li>
-        <li><a href="jobs.jsp">人才招聘</a></li>
-        <li><a href="service.jsp">服务支持</a></li>
-        <li><a href="contact.jsp">联系我们</a></li>
+        <li><a id="service1_link">车辆信息管理</a></li>
+
+        <li><a id="service2_link">视频分析管理</a></li>
+
+        <li><a id="service3_link">统计分析管理</a></li>
+
+        <li><a id="service4_link">违章信息管理</a></li>
+
+        <li><a id="service5_link">代办事项管理</a></li>
+
+
     </ul>
     <div class="index-header-right fr">
         <a href="" class="search-btn">搜索</a>
@@ -50,15 +58,7 @@
         <div class="banner-position">
             <div class="index-banner swiper-container">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <img src="./images/banner1.jpg">
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="./images/banner1.jpg">
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="./images/banner1.jpg">
-                    </div>
+                        <video  autoplay="autoplay" controls="controls" loop="loop" src="./images/2.mp4"/>
                 </div>
                 <!-- Add Navigation -->
                 <div class="swiper-button-prev swiper-button-white"></div>
@@ -75,7 +75,7 @@
 
                             <feColorMatrix in="blur" mode="matrix" values="
 
-							   1 0 0 0 0
+            				   1 0 0 0 0
 
 							   0 1 0 0 0
 
@@ -140,19 +140,22 @@
             </div>
         </div>
         <div class="clear"></div>
-        <!--about-->
+
+
+        <!--1.车辆管理开始-->
         <div class="index-about">
             <div class="index-con clearfix">
                 <div class="index-about-text fl">
                     <div class="index-title">
-                        <h3 class="scroll-animate" data-effect="fadeInUpSmall">bailuozhineng</h3>
-                        <h2 class="scroll-animate" data-delay="0.2" data-effect="fadeInUpSmall">about us</h2>
+                        <h3 class="scroll-animate" data-effect="fadeInUpSmall" id="service1">SERVICE 1</h3>
+                        <h2 class="scroll-animate" data-delay="0.2" data-effect="fadeInUpSmall">信息管理</h2>
                         <span></span>
                     </div>
-                    <p  class="scroll-animate" data-delay="0.6" data-effect="fadeInUpSmall">XXX智能立足于智慧社区领域，以人脸识别系统为核心，以社区需求为导向，率先在智慧社区、大数据领域布局并取得重大突破。<br />
-                        XXX专注于智慧社区系统方案及配套产品的研发，通过云计算、大数据、人工智能等技术连接物业、居民、政府、媒体和社区服务提供方，形成“物联网+社区”一站式解决方案，目前已经获得国内专利及软件著作权40多项。</p>
+                    <p  class="scroll-animate" data-delay="0.6" data-effect="fadeInUpSmall"><strong>XM02小组智能交通视频分析平台立足于智慧交通领域，以OpenCV技术为核心，全国交通需求为导向，率先在智慧交通领域布局并取得重大突破。<br />
+                        该平台可提供交管部门查询车辆信息的功能，提供增加、删除、修改、查询、统计、导出、打印、排序等功能</strong>
+                    </p>
                     <div class="index-more">
-                        <a href="">view more +</a>
+                        <a href="../datatable/index.jsp">信息管理</a>
                     </div>
                 </div>
                 <div class="index-about-pic fr">
@@ -165,14 +168,17 @@
                 <img src="./images/wavs.gif">
             </div>
         </div>
+        <div class="position-yuan clearfix">
+            <div class="bg scr-el" data-v="1" data-speed-x="12" data-offset="150 "></div>
+        </div>
         <div class="clear"></div>
 
-        <!--业务范围-->
+        <!--2.视频分析开始-->
         <div class="index-yewu">
             <div class="index-con clearfix">
                 <div class="index-title">
-                    <h3>bailuozhineng</h3>
-                    <h2>why we</h2>
+                    <h3 id="service2">SERVICE 2</h3>
+                    <h2>视频分析</h2>
                 </div>
 
                 <div class="index-yewu-info clearfix">
@@ -186,9 +192,9 @@
                             <a href="">
                                 <em><img src="./images/ico1.png"></em>
                                 <div class="text">
-                                    <h2>智慧城市</h2>
-                                    <span>Smart city</span>
-                                    <p>互联网为依托，对商家的线上服务、客户的线下体验以及与现代物流进行深度融合</p>
+                                    <h2>违规停放检测</h2>
+                                    <span>Parking Violation</span>
+                                    <p>当车辆在违规停放区域超过15分钟会被视为违停。</p>
                                 </div>
                                 <div class="button bz-buttonAnimat clockwise both">
                                     <div class="inner"></div>
@@ -199,9 +205,9 @@
                             <a href="">
                                 <em><img src="./images/ico2.png"></em>
                                 <div class="text">
-                                    <h2>智慧社区</h2>
-                                    <span>Smart city</span>
-                                    <p>互联网为依托，对商家的线上服务、客户的线下体验以及与现代物流进行深度融合</p>
+                                    <h2>闯红灯检测</h2>
+                                    <span>red lights</span>
+                                    <p>车辆在红灯亮起时，若后轮压线则被判定为闯红灯。</p>
                                 </div>
                                 <div class="button bz-buttonAnimat clockwise both">
                                     <div class="inner"></div>
@@ -212,9 +218,9 @@
                             <a href="">
                                 <em><img src="./images/ico3.png"></em>
                                 <div class="text">
-                                    <h2>智慧校园</h2>
-                                    <span>Smart city</span>
-                                    <p>互联网为依托，对商家的线上服务、客户的线下体验以及与现代物流进行深度融合</p>
+                                    <h2>压双黄线检测</h2>
+                                    <span>Double yellow line</span>
+                                    <p>若车辆无视双黄线，直接压线变道或者掉头，则被判定为压双黄线。</p>
                                 </div>
                                 <div class="button bz-buttonAnimat clockwise both">
                                     <div class="inner"></div>
@@ -225,9 +231,9 @@
                             <a href="">
                                 <em><img src="./images/ico4.png"></em>
                                 <div class="text">
-                                    <h2>智慧安防</h2>
-                                    <span>Smart city</span>
-                                    <p>互联网为依托，对商家的线上服务、客户的线下体验以及与现代物流进行深度融合</p>
+                                    <h2>逆行检测</h2>
+                                    <span>Retrograde</span>
+                                    <p>若车辆不按规定方向行驶，则被判定为逆行。</p>
                                 </div>
                                 <div class="button bz-buttonAnimat clockwise both">
                                     <div class="inner"></div>
@@ -238,9 +244,9 @@
                             <a href="">
                                 <em><img src="./images/ico5.png"></em>
                                 <div class="text">
-                                    <h2>人脸识别</h2>
-                                    <span>Face recognition</span>
-                                    <p>互联网为依托，对商家的线上服务、客户的线下体验以及与现代物流进行深度融合</p>
+                                    <h2>车牌号识别</h2>
+                                    <span>plate recognition</span>
+                                    <p>该平台能够对各种品质交通视频中的车牌号进行精准识别。</p>
                                 </div>
                                 <div class="button bz-buttonAnimat clockwise both">
                                     <div class="inner"></div>
@@ -251,9 +257,9 @@
                             <a href="">
                                 <em><img src="./images/ico6.png"></em>
                                 <div class="text">
-                                    <h2>行为分析</h2>
-                                    <span>behavior analysis</span>
-                                    <p>互联网为依托，对商家的线上服务、客户的线下体验以及与现代物流进行深度融合</p>
+                                    <h2>速度识别</h2>
+                                    <span>Speed recognition</span>
+                                    <p>该平台能够对视频中出现的车辆进行精准的速度识别。</p>
                                 </div>
                                 <div class="button bz-buttonAnimat clockwise both">
                                     <div class="inner"></div>
@@ -261,29 +267,174 @@
                             </a>
                         </li>
                     </ul>
+
+                    <div class="wave_box1">
+                        <img src="./images/wavs.gif">
+                    </div>
+
+                </div>
+                <div class="index-more">
+                    <a href="../videoWeb/html/index.jsp">视频分析</a>
                 </div>
             </div>
         </div>
         <div class="clear"></div>
-
         <div class="position-yuan clearfix">
             <div class="bg scr-el" data-v="1" data-speed-x="12" data-offset="150 "></div>
         </div>
         <div class="clear"></div>
-        <!--产品-->
+
+        <!--3.统计分析管理-->
+        <div class="index-yewu">
+            <div class="index-con clearfix">
+                <div class="index-title">
+                    <h3 id="service3">SERVICE 3</h3>
+                    <h2>统计分析</h2>
+                </div>
+
+                <div class="index-yewu-info clearfix">
+                    <div class="index-yewu-pic fl">
+                        <a href="" >
+                            <img src="./images/研开.png" class="scroll-animate classGo" data-Tclass="go">
+                        </a>
+                    </div>
+                    <ul class="index-yewu-list clearfix fr">
+                        <li>
+                            <a href="">
+                                <em><img src="./images/ico1.png"></em>
+                                <div class="text">
+                                    <h2>车流量分析</h2>
+                                    <span>Traffic volume</span>
+                                    <p>该平台使用折线图展示每天24小时车流量统计图。</p>
+                                </div>
+                                <div class="button bz-buttonAnimat clockwise both">
+                                    <div class="inner"></div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <em><img src="./images/ico2.png"></em>
+                                <div class="text">
+                                    <h2>违章数量分析</h2>
+                                    <span>violations</span>
+                                    <p>该平台展示每个路口的违章数量及类型统计。</p>
+                                </div>
+                                <div class="button bz-buttonAnimat clockwise both">
+                                    <div class="inner"></div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <em><img src="./images/ico3.png"></em>
+                                <div class="text">
+                                    <h2>路口断流分析</h2>
+                                    <span>cut off</span>
+                                    <p>该平台展示路口五分钟断流和十分钟断流情况，供交警分析。</p>
+                                </div>
+                                <div class="button bz-buttonAnimat clockwise both">
+                                    <div class="inner"></div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <em><img src="./images/ico4.png"></em>
+                                <div class="text">
+                                    <h2>磁盘空闲分析</h2>
+                                    <span>Disk</span>
+                                    <p>该平台展示图片存放磁盘的空闲分区，供技术人员参考。</p>
+                                </div>
+                                <div class="button bz-buttonAnimat clockwise both">
+                                    <div class="inner"></div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <em><img src="./images/ico5.png"></em>
+                                <div class="text">
+                                    <h2>卡口记录分析</h2>
+                                    <span>Bayonet record</span>
+                                    <p>该平台循环滚动所有卡口最后捕获到的十条违章记录。</p>
+                                </div>
+                                <div class="button bz-buttonAnimat clockwise both">
+                                    <div class="inner"></div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <em><img src="./images/ico6.png"></em>
+                                <div class="text">
+                                    <h2>天气展示</h2>
+                                    <span>Weather</span>
+                                    <p>该平台开放天气查看功能，以便了解天气情况，方便出行。</p>
+                                </div>
+                                <div class="button bz-buttonAnimat clockwise both">
+                                    <div class="inner"></div>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+
+                    <div class="wave_box1">
+                        <img src="./images/wavs.gif">
+                    </div>
+
+                </div>
+                <div class="index-more">
+                    <a href="../Statistics/index.jsp">统计分析</a>
+                </div>
+            </div>
+        </div>
+        <div class="clear"></div>
+        <div class="clear"></div>
+
+        <!--4.违章信息管理开始-->
+        <div class="index-about">
+            <div class="index-con clearfix">
+                <div class="index-about-text fl">
+                    <div class="index-title">
+                        <h3 class="scroll-animate" data-effect="fadeInUpSmall" id="service4">SERVICE 4</h3>
+                        <h2 class="scroll-animate" data-delay="0.2" data-effect="fadeInUpSmall">违章管理</h2>
+                        <span></span>
+                    </div>
+                    <p  class="scroll-animate" data-delay="0.6" data-effect="fadeInUpSmall">
+                        <strong>XM02小组致力于同交管部门合作，为其提供违章管理功能<br/>
+                        交警可执行违章记录查询，处理等功能。</strong>
+                    </p>
+                    <div class="index-more">
+                        <a href="../TwoTable/index.html">违章管理</a>
+                    </div>
+                </div>
+                <div class="index-about-pic fr">
+                    <a href="" >
+                        <img src="./images/研开2.png" class="scroll-animate classGo" data-Tclass="go">
+                    </a>
+                </div>
+            </div>
+            <div class="wave_box1">
+                <img src="./images/wavs.gif">
+            </div>
+        </div>
+        <div class="clear"></div>
+
+        <!--5.代办事项-->
         <div class="index-product clearfix">
             <div class="index-con clearfix">
                 <div class="index-title">
-                    <h3>bailuozhineng</h3>
-                    <h2>Product</h2>
+                    <h3 id="service5">SERVICE 5</h3>
+                    <h2>待办事项</h2>
                 </div>
                 <ul class="clearfix index-product-list clearfix">
                     <li>
                         <a href="">
                             <em><img src="./images/pic4.jpg"></em>
                             <div class="text">
-                                <h2>智能人脸识别系统 </h2>
-                                <p>Intelligent Face Recognition System</p>
+                                <h2>日常办公</h2>
+                                <p>Routine work</p>
                                 <span><img src="./images/jt.png"></span>
                             </div>
                         </a>
@@ -292,8 +443,8 @@
                         <a href="">
                             <em><img src="./images/pic5.jpg"></em>
                             <div class="text">
-                                <h2>智能交通应用系统 </h2>
-                                <p>Intelligent Transportation Application System</p>
+                                <h2>消息推送</h2>
+                                <p>Message push</p>
                                 <span><img src="./images/jt.png"></span>
                             </div>
                         </a>
@@ -302,71 +453,21 @@
                         <a href="">
                             <em><img src="./images/pic6.jpg"></em>
                             <div class="text">
-                                <h2>社区媒体服务 </h2>
-                                <p>Community Media Services</p>
+                                <h2>通知公告</h2>
+                                <p>Notice</p>
                                 <span><img src="./images/jt.png"></span>
                             </div>
                         </a>
                     </li>
                 </ul>
+                <div class="index-more">
+                    <a href="../todo-list/index.jsp">代办事项</a>
+                </div>
             </div>
         </div>
         <div class="clear"></div>
 
-        <!--news-->
-        <div class="index-news">
-            <div class="index-con clearfix">
-                <div class="index-title">
-                    <h3>bailuozhineng</h3>
-                    <h2>news</h2>
-                </div>
-                <ul class="index-news-list clearfix">
-                    <li class="trs02 an_up">
-                        <a href="">
-                            <em><img src="./images/pic7.jpg"></em>
-                            <div class="text">
-                                <span></span>
-                                <p>AI人脸识别，助力智慧社区建设升级慧社区建！</p>
-                                <i>2019.09.25</i>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="trs03 an_up">
-                        <a href="">
-                            <em><img src="./images/pic7.jpg"></em>
-                            <div class="text">
-                                <span></span>
-                                <p>AI人脸识别，助力智慧社区建设升级慧社区建！</p>
-                                <i>2019.09.25</i>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="trs04 an_up">
-                        <a href="">
-                            <em><img src="./images/pic7.jpg"></em>
-                            <div class="text">
-                                <span></span>
-                                <p>AI人脸识别，助力智慧社区建设升级慧社区建！</p>
-                                <i>2019.09.25</i>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="trs05 an_up">
-                        <a href="">
-                            <em><img src="./images/pic7.jpg"></em>
-                            <div class="text">
-                                <span></span>
-                                <p>AI人脸识别，助力智慧社区建设升级慧社区建！</p>
-                                <i>2019.09.25</i>
-                            </div>
-                        </a>
-                    </li>
-                </ul>
-                <div class="clear"></div>
-            </div>
-        </div>
-
-        <!--footer-->
+        <!--6.footer-->
         <div class="index-footer">
             <div class="clearfix index-footer-info index-con">
                 <div class=" fl">
@@ -374,24 +475,22 @@
                 </div>
                 <div class="lianxi fl">
                     <h2>联系方式</h2>
-                    <p>前台电话： xxx </p>
-                    <p>报修电话：xxx</p>
-                    <P>地址：xxx省xxx市XX区XX1201号XXXXXX</P>
-                    <p>商务产业园x期x号楼东xxx室</p>
+                    <p>负责人电话： 19981459097 </p>
+                    <p>技术人员电话：15756486126</p>
+                    <P>地址：四川省成都市双流区四川大学</P>
                 </div>
                 <div class="phone fl">
-                    xxx
+                    19981459097
                 </div>
                 <div class="erweima fr">
-                    <img src="./images/pic1.jpg">
-                    <p>二维码</p>
+                    <img src="./images/1.png">
+                    <p>负责人二维码</p>
                 </div>
             </div>
 
             <div class="index-footer-bottom">
                 <div class="index-con clearfix">
-                    <p class="fl">版权所有 © 2020 xxxx科技有限公司  皖ICP备xxxxxxxx号 x公网安备xxxxxxxxxxxxxxxxxx号</p>
-                    <a href="http://www.5imoban.net" target="_blank" class="fr">技术支持：静态网页模板</a>
+                    <p class="fl">版权所有 © 2021 辛卫研究与开发实践XM02小组 小组成员：彭睿、邱玥、包泓辉、董勉岐</p>
                 </div>
             </div>
         </div>
@@ -422,5 +521,36 @@
         wrapperSpeed: 0.08
     });
 </script>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#service1_link").click(function() {
+            $("html, body").animate({
+                scrollTop: $("#service1").offset().top }, {duration: 500,easing: "swing"});
+            return false;
+        });
+        $("#service2_link").click(function() {
+            $("html, body").animate({
+                scrollTop: $("#service2").offset().top }, {duration: 500,easing: "swing"});
+            return false;
+        });
+        $("#service3_link").click(function() {
+            $("html, body").animate({
+                scrollTop: $("#service3").offset().top }, {duration: 500,easing: "swing"});
+            return false;
+        });
+        $("#service4_link").click(function() {
+            $("html, body").animate({
+                scrollTop: $("#service4").offset().top }, {duration: 500,easing: "swing"});
+            return false;
+        });
+        $("#service5_link").click(function() {
+            $("html, body").animate({
+                scrollTop: $("#service5").offset().top }, {duration: 500,easing: "swing"});
+            return false;
+        });
+    });
+</script>
+
 </body>
 </html>
