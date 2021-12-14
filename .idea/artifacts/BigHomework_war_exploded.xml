@@ -1,0 +1,16 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="BigHomework_war_exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/BigHomework_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="Traffic-video-analysis-system/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="Traffic-video-analysis-system" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="lib" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

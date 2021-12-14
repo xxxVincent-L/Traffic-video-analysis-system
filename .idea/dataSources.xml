@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="MySQL for 5.1 - @www.ylxteach.net" uuid="864890e2-91f4-4b62-b890-8d62cd8c7296">
+      <driver-ref>mysql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://www.ylxteach.net:3366</jdbc-url>
+    </data-source>
+  </component>
+</project>

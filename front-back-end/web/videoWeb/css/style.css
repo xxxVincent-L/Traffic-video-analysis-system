@@ -379,5 +379,31 @@ width: 79%;
     margin: 0 auto;
     background-image: url("../img/toolbg.png");
     margin-top: 10px;
+}
 
+.wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-gap: 10px;
+}
+
+.video_1 {
+    grid-row: 1;
+    grid-column: 1;
+}
+
+.video_2 {
+    grid-row: 2;
+    grid-column: 1;
+}
+
+.pics {
+    grid-row: 1;
+    grid-column: 2;
+}
+
+.tables {
+    grid-row: 2;
+    grid-column: 2;
 }

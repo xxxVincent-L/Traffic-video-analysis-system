@@ -194,7 +194,6 @@ public class ServletAction extends HttpServlet {
 		getExportDeviceRecordToTxt(json, data);
 		getExportDeviceRecordToExcel(json, data);
 		getExportDeviceRecordToPdf(json, data);
-
 	}
 
 	private void getExportDeviceRecordToPdf(JSONObject json, Data data) {
@@ -227,7 +226,6 @@ public class ServletAction extends HttpServlet {
 			e.printStackTrace();
 		}
 	}
-
 
 	/*========================================CRUD业务函数 结束========================================*/
 

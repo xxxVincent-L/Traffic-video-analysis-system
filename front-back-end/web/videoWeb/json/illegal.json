@@ -1,0 +1,61 @@
+{
+  "code": 0,
+  "msg": "",
+  "data": [
+    {
+    "IllegalID":"1",
+    "CarNum":"川A23454",
+    "IllegalDate":"2021\/11\/23 04:19:31"
+    },
+    {
+    "IllegalID":"102",
+    "CarNum":"川A20384",
+    "IllegalDate":"2021\/11\/22 05:20:32"
+    },
+    {
+    "IllegalID":"11",
+    "CarNum":"川A23454",
+    "IllegalDate":"2021\/11\/4 04:37:45"
+    },
+    {
+    "IllegalID":"113",
+    "CarNum":"苏F99886",
+    "IllegalDate":"2021\/11\/3 04:38:58"
+    },
+    {
+    "IllegalID":"122",
+    "CarNum":"川B02358",
+    "IllegalDate":"2021\/11\/3 04:38:25"
+    },
+    {
+    "IllegalID":"2",
+    "CarNum":"川B02358",
+    "IllegalDate":"2021\/11\/25 04:20:03"
+    },
+    {
+    "IllegalID":"3",
+    "CarNum":"苏F99886",
+    "IllegalDate":"2021\/11\/23 04:24:27"
+    },
+    {
+    "IllegalID":"4",
+    "CarNum":"内蒙A293810",
+    "IllegalDate":"2021\/10\/29 04:34:54"
+    },
+    {
+    "IllegalID":"5",
+    "CarNum":"闽A293857",
+    "IllegalDate":"2021\/11\/1 12:29:45"
+    },
+    {
+    "IllegalID":"I1",
+    "CarNum":"皖AZH168",
+    "IllegalDate":"2018\/2\/21 10:14:45"
+    },
+    {
+    "IllegalID":"I2",
+    "CarNum":"湘J5353H",
+    "IllegalDate":"2018\/2\/21 10:14:47"
+    }
+  ]
+}

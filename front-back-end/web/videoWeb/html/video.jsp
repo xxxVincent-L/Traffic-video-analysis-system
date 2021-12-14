@@ -10,10 +10,6 @@
 
 
     <style type="text/css">
-
-
-
-
     </style>
 </head>
 
@@ -38,7 +34,7 @@
     <div class="video_right">
         <div style="display:none;position: absolute;z-index: 1;width: 100%;height: 100%;" id="mask">
             <div style="margin:auto;background-color: black;color: aliceblue;"><h1>视频在处理中，请稍后</h1></div>
-    
+
         </div>
         <div class="video_1">
 
@@ -55,7 +51,7 @@
                 <source src="" type="video/webm">
             </video> -->
             <div id="illegal"style="width:100%;height:100%;overflow: scroll;"></div>
-        
+
         </div>
 
 
@@ -76,7 +72,7 @@
         document.getElementById("video1").pause();
     }
     $(document).ready(function () {
-        
+
         $("#input_file").change(function () {
             $("#mask").attr("style","display:flex;position: absolute;z-index: 1;width: 100%;height: 100%;");
             // var files = $("#input_file").files[0];
@@ -113,7 +109,6 @@
                         html+="<img src='"+img_urls[i]+"'>";
                     }
                     $("#illegal").html(html)
-
                     // $("#video2")[0].load();
                     // $("#download_url").html("download_url="+downloadUrl);
                     // $("#attachment_id").html("attachment_id="+attachmentId);
