@@ -35,4 +35,13 @@
         <url-pattern>/file_upload</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>todo</servlet-name>
+        <servlet-class>todo_list.todo</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>todo</servlet-name>
+        <url-pattern>/todo_list</url-pattern>
+    </servlet-mapping>
+
 </web-app>

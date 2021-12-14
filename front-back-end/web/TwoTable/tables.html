@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<!--[if IE 9 ]><html class="ie9"><![endif]-->
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <meta name="format-detection" content="telephone=no">
+    <meta charset="UTF-8">
+
+    <meta name="description" content="Violate Responsive Admin Template">
+    <meta name="keywords" content="Super Admin, Admin, Template, Bootstrap">
+
+    <title>违章信息管理</title>
+
+    <!-- CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/form.css" rel="stylesheet">
+    <link href="css/calendar.css" rel="stylesheet">
+    <link href="css/media-player.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/icons.css" rel="stylesheet">
+    <link href="css/generics.css" rel="stylesheet">
+</head>
+<body id="skin-blur-violate">
+<header id="header" class="media">
+    <a href="" id="menu-toggle"></a>
+    <a class="logo pull-left" href="../main/index.jsp">首页</a>
+
+    <div class="media-body">
+        <div class="media" id="top-menu">
+            <div class="pull-left tm-icon">
+                <a data-drawer="messages" class="drawer-toggle" href="">
+                    <i class="sa-top-message"></i>
+                    <i class="n-count animated">5</i>
+                    <span>Messages</span>
+                </a>
+            </div>
+            <div class="pull-left tm-icon">
+                <a data-drawer="notifications" class="drawer-toggle" href="">
+                    <i class="sa-top-updates"></i>
+                    <i class="n-count animated">9</i>
+                    <span>Updates</span>
+                </a>
+            </div>
+
+
+
+            <div id="time" class="pull-right">
+                <span id="hours"></span>
+                :
+                <span id="min"></span>
+                :
+                <span id="sec"></span>
+            </div>
+
+            <div class="media-body">
+                <input type="text" class="main-search">
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="clearfix"></div>
+
+<section id="main" class="p-relative" role="main">
+
+    <!-- Sidebar -->
+    <aside id="sidebar">
+
+        <!-- Sidbar Widgets -->
+        <div class="side-widgets overflow">
+            <!-- Profile Menu -->
+            <div class="text-center s-widget m-b-25 dropdown" id="profile-menu">
+                <a href="" data-toggle="dropdown">
+                    <img class="profile-pic animated" src="img/1.jpeg" alt="">
+                </a>
+                <ul class="dropdown-menu profile-menu">
+                    <li><a href="">My Profile</a> <i class="icon left">&#61903;</i><i class="icon right">&#61815;</i></li>
+                    <li><a href="">Messages</a> <i class="icon left">&#61903;</i><i class="icon right">&#61815;</i></li>
+                    <li><a href="">Settings</a> <i class="icon left">&#61903;</i><i class="icon right">&#61815;</i></li>
+                    <li><a href="">Sign Out</a> <i class="icon left">&#61903;</i><i class="icon right">&#61815;</i></li>
+                </ul>
+                <h4 class="m-0">彭睿</h4>
+                    1255013836@qq.com
+            </div>
+
+            <!-- Calendar -->
+            <div class="s-widget m-b-25">
+                <div id="sidebar-calendar"></div>
+            </div>
+        </div>
+        <!-- Side Menu -->
+            <ul class="list-unstyled side-menu">
+                <li class="active">
+                    <a class="sa-side-home" href="index.html">
+                        <span class="menu-item">Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="sa-side-typography" href="typography.html">
+                        <span class="menu-item">Typography</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="sa-side-widget" href="content-widgets.html">
+                        <span class="menu-item">Widgets</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="sa-side-table" href="tables.html">
+                        <span class="menu-item">Tables</span>
+                    </a>
+                </li>
+                <li class="dropdown">
+                    <a class="sa-side-form" href="">
+                        <span class="menu-item">Form</span>
+                    </a>
+                    <ul class="list-unstyled menu-item">
+                        <li><a href="form-elements.html">Basic Form Elements</a></li>
+                        <li><a href="form-components.html">Form Components</a></li>
+                        <li><a href="form-examples.html">Form Examples</a></li>
+                        <li><a href="form-validation.html">Form Validation</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a class="sa-side-ui" href="">
+                        <span class="menu-item">User Interface</span>
+                    </a>
+                    <ul class="list-unstyled menu-item">
+                        <li><a href="buttons.html">Buttons</a></li>
+                        <li><a href="labels.html">Labels</a></li>
+                        <li><a href="images-icons.html">Images &amp; Icons</a></li>
+                        <li><a href="alerts.html">Alerts</a></li>
+                        <li><a href="media.html">Media</a></li>
+                        <li><a href="components.html">Components</a></li>
+                        <li><a href="other-components.html">Others</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a class="sa-side-chart" href="charts.html">
+                        <span class="menu-item">Charts</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="sa-side-folder" href="file-manager.html">
+                        <span class="menu-item">File Manager</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="sa-side-calendar" href="calendar.html">
+                        <span class="menu-item">Calendar</span>
+                    </a>
+                </li>
+                <li class="dropdown">
+                    <a class="sa-side-page" href="">
+                        <span class="menu-item">Pages</span>
+                    </a>
+                    <ul class="list-unstyled menu-item">
+                        <li><a href="list-view.html">List View</a></li>
+                        <li><a href="profile-page.html">Profile Page</a></li>
+                        <li><a href="messages.html">Messages</a></li>
+                        <li><a href="login.html">Login</a></li>
+                        <li><a href="404.html">404 Error</a></li>
+                    </ul>
+                </li>
+            </ul>
+    </aside>
+
+    <!-- Content -->
+    <section id="content" class="container">
+
+
+
+        <!-- Breadcrumb -->
+        <h4 class="page-title" style="text-align: center;font-size: 45px;">违章信息管理</h4>
+
+        <h3 style="text-align: center">违法车辆信息</h3>
+        <!-- BEGIN ZSCG1 TABLE -->
+        <table class="table table-hover table-bordered" id="mytable">
+            <thead>
+            <tr>
+                <th>违章代码</th>
+                <th>车牌号</th>
+                <th>违章时间</th>
+                <th>违章地点</th>
+                <th>违章情况</th>
+                <th>是否扣留车辆</th>
+                <th>车辆扣留天数</th>
+                <th>处理状态</th>
+                <th>备注</th>
+                <th>操作</th>
+            </tr>
+
+            </thead>
+            <tbody id="listTable">
+            <tr>
+                <td>100806131234</td>
+                <td>川A123456</td>
+                <td>2021-08-07</td>
+                <td>北京市朝阳区</td>
+                <td>闯红灯</td>
+                <td>否</td>
+                <td>0</td>
+                <td>未处理</td>
+                <td>无备注</td>
+                <td>
+                    <input type="button" name="" value="删除" class="btn btn-danger" onclick="del(this)" />
+                    <input type="button" name="" value="修改" class="btn btn-info" onclick="modify(this)" data-toggle="modal" data-target="#myModal" />
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+       <!--<form>
+            <div class="dropdown">
+                <button class="dropbtn">违法车辆新增数据</button>
+                <div class="dropdown-content" >
+                    <tr>
+                        <th>违章代码</th>
+                        <td><input type="text" name="" class="form-control" id="illnum" /></td>
+                    </tr>
+                    <tr>
+                        <th>车牌号</th>
+                        <td><input type="text" name="" class="form-control" id="carnum" /></td>
+                    </tr>
+                    <tr>
+                        <th>违章时间</th>
+                        <td><input type="date" name="" class="form-control" id="timee"/></td>
+                    </tr>
+                    <tr>
+                        <th>违章地点</th>
+                        <td><input type="text" name="" class="form-control" id="address"  /></td>
+                    </tr>
+                    <tr>
+                        <th>违章情况</th>
+                        <td><input type="text" name="" class="form-control" id="situation" /></td>
+                    </tr>
+                    <tr>
+                        <th>是否扣留车辆</th>
+                        <td><input type="text" name="" class="form-control" id="kouliu" /></td>
+                    </tr>
+                    <tr>
+                        <th>车辆扣留天数</th>
+                        <td><input type="text" name="" class="form-control" id="days" /></td>
+                    </tr>
+                    <tr>
+                        <th>处理状态</th>
+                        <td><input type="text" name="" class="form-control" id="state" /></td>
+                    </tr>
+                    <tr>
+                        <th>备注</th>
+                        <td><input type="text" name="" class="form-control" id="remark" /></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <input type="reset" value="重置" class="btn btn-primary" id="reset" />
+                            <input type="button" value="添加"  class="btn btn-success" id="add"  onclick="addList()" />
+                            <input type="button" value="更新"  class="btn btn-info" id=""  onclick="update()" />
+                        </td>
+                    </tr>
+                </div>
+            </div>
+
+            <style>
+                /* 下拉按钮样式 */
+                .dropbtn {
+                    background-color: #444444;
+                    color: #fdf9f9;
+                    padding: 12px;
+                    font-size: 12px;
+                    border: none;
+                    cursor: pointer;
+                }
+
+                /* 容器 <div> - 需要定位下拉内容 */
+                .dropdown {
+                    position: relative;
+                    display: inline-block;
+                }
+
+                /* 下拉内容 (默认隐藏) */
+                .dropdown-content {
+                    display: none;
+                    position: center;
+                    background-color: #1a1a1a;
+                    color: #f8f2f2;
+                    font-size: 15px;
+                    min-width: 400px;
+
+                }
+
+                /* 下拉菜单的链接 */
+                .dropdown-content a {
+                    color: black;
+                    padding: 12px 16px;
+                    text-decoration: none;
+                    display: block;
+                }
+
+                /* 鼠标移上去后修改下拉菜单链接颜色 */
+                .dropdown-content a:hover {background-color: #c2c2c2
+                }
+
+                /* 在鼠标移上去后显示下拉菜单 */
+                .dropdown:hover .dropdown-content {
+                    display: block;
+                }
+
+                /* 当下拉内容显示后修改下拉按钮的背景颜色 */
+                .dropdown:hover .dropbtn {
+                    background-color: #9f9d9d;
+                }
+            </style>
+
+
+
+            <script type="text/javascript">
+                function addList(){
+                    var oNum1 = document.getElementById('illnum').value;
+                    var oNum2 = document.getElementById('carnum').value;
+                    var oNum3 = document.getElementById('timee').value;
+                    var oNum4 = document.getElementById('address').value;
+                    var oNum5 = document.getElementById('situation').value;
+                    var oNum6 = document.getElementById('kouliu').value;
+                    var oNum7 = document.getElementById('days').value;
+                    var oNum8 = document.getElementById('state').value;
+                    var oNum9 = document.getElementById('remark').value;
+
+                    var oTr = document.createElement('tr');
+                    var oTd1 = document.createElement('td');
+                    var oInput = document.createElement('input');
+                    oTd1.appendChild(oInput);
+                    oInput.setAttribute('type','checkbox');
+                    oInput.setAttribute('name','item');
+                    oTd1.innerHTML =oNum1;
+                    var oTd2 = document.createElement('td');
+                    oTd2.innerHTML =oNum2;
+                    var oTd3 = document.createElement('td');
+                    oTd3.innerHTML = oNum3;
+                    var oTd4 = document.createElement('td');
+                    oTd4.innerHTML = oNum4;
+                    var oTd5 = document.createElement('td');
+                    oTd5.innerHTML = oNum5;
+                    var oTd6 = document.createElement('td');
+                    oTd6.innerHTML = oNum6;
+                    var oTd7 = document.createElement('td');
+                    oTd7.innerHTML = oNum7;
+                    var oTd8 = document.createElement('td');
+                    oTd8.innerHTML = oNum8;
+                    var oTd9 = document.createElement('td');
+                    oTd9.innerHTML = oNum9;
+
+                    var oTd10 = document.createElement('td');
+                    var oInput2 = document.createElement('input');
+                    var oInput3 = document.createElement('input');
+
+                    oTr.appendChild(oTd1);
+                    oTr.appendChild(oTd2);
+                    oTr.appendChild(oTd3);
+                    oTr.appendChild(oTd4);
+                    oTr.appendChild(oTd5);
+                    oTr.appendChild(oTd6);
+                    oTr.appendChild(oTd7);
+                    oTr.appendChild(oTd8);
+                    oTr.appendChild(oTd9);
+                    oTr.appendChild(oTd10);
+                    oTd10.appendChild(oInput2);
+                    oTd10.appendChild(oInput3);
+                    oInput2.setAttribute('type','button');
+                    oInput2.setAttribute('value','删除');
+                    oInput2.setAttribute('onclick','del(this)');
+                    oInput2.className = 'btn btn-danger';
+                    oInput3.setAttribute('type','button');
+                    oInput3.setAttribute('value','修改');
+                    oInput3.setAttribute('onclick','modify(this)');
+                    oInput3.className = 'btn btn-info';
+                    var olistTable = document.getElementById('listTable');
+                    olistTable.appendChild(oTr);
+                }
+                function del(obj){
+                    var oParentnode = obj.parentNode.parentNode;
+                    var olistTable = document.getElementById('listTable');
+                    olistTable.removeChild(oParentnode);
+                }
+                //修改功能
+                function modify(obj){
+
+                    var oNum1 = document.getElementById('illnum');
+                    var oNum2 = document.getElementById('carnum');
+                    var oNum3 = document.getElementById('timee');
+                    var oNum4 = document.getElementById('address');
+                    var oNum5 = document.getElementById('situation');
+                    var oNum6 = document.getElementById('kouliu');
+                    var oNum7 = document.getElementById('days');
+                    var oNum8 = document.getElementById('state');
+                    var oNum9 = document.getElementById('remark');
+
+
+                    var oTr = obj.parentNode.parentNode;
+                    var aTd = oTr.getElementsByTagName('td');
+                    rowIndex = obj.parentNode.parentNode.rowIndex;
+                    oNum1.value = aTd[0].innerHTML;
+                    oNum2.value = aTd[1].innerHTML;
+                    oNum3.value = aTd[2].innerHTML;
+                    oNum4.value = aTd[3].innerHTML;
+                    oNum5.value = aTd[4].innerHTML;
+                    oNum6.value = aTd[5].innerHTML;
+                    oNum7.value = aTd[6].innerHTML;
+                    oNum8.value = aTd[7].innerHTML;
+                    oNum9.value = aTd[8].innerHTML;
+
+                    console.log(aTd[2].innerHTML);
+                    //alert(i);
+
+                }
+                //更新功能
+                function update(){
+                    var oNum1 = document.getElementById('illnum');
+                    var oNum2 = document.getElementById('carnum');
+                    var oNum3 = document.getElementById('timee');
+                    var oNum4 = document.getElementById('address');
+                    var oNum5 = document.getElementById('situation');
+                    var oNum6 = document.getElementById('kouliu');
+                    var oNum7 = document.getElementById('days');
+                    var oNum8 = document.getElementById('state');
+                    var oNum9 = document.getElementById('remark');
+                    var oMytable = document.getElementById('mytable');
+                    //alert(rowIndex);
+                    //var aTd = rowIndex.cells;
+                    console.log(oMytable.rows[rowIndex].cells)
+                    oMytable.rows[rowIndex].cells[0].innerHTML = oNum1.value;
+                    oMytable.rows[rowIndex].cells[1].innerHTML = oNum2.value;
+                    oMytable.rows[rowIndex].cells[2].innerHTML = oNum3.value;
+                    oMytable.rows[rowIndex].cells[3].innerHTML = oNum4.value;
+                    oMytable.rows[rowIndex].cells[4].innerHTML = oNum5.value;
+                    oMytable.rows[rowIndex].cells[5].innerHTML = oNum6.value;
+                    oMytable.rows[rowIndex].cells[6].innerHTML = oNum7.value;
+                    oMytable.rows[rowIndex].cells[7].innerHTML = oNum8.value;
+                    oMytable.rows[rowIndex].cells[8].innerHTML = oNum9.value;
+                }
+                //全选
+            </script>
+
+            </table>
+        </form>-->
+        <!-- END TABLE PORTLET-->
+
+
+
+        <!-- 按钮触发模态框 -->
+        <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+            违法车辆数据修改及新增
+        </button>
+
+        <!-- 模态框（Modal） -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
+                        </button>
+                        <h4 class="modal-title" id="myModalLabel">
+                            违法车辆数据修改及新增
+                        </h4>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="content" >
+                  <tr>
+                      <th>违章代码</th>
+                      <td><input type="text" name="" class="form-control" id="illnum" /></td>
+                  </tr>
+                  <tr>
+                      <th>车牌号</th>
+                      <td><input type="text" name="" class="form-control" id="carnum" /></td>
+                  </tr>
+                  <tr>
+                      <th>违章时间</th>
+                      <td><input type="date" name="" class="form-control" id="timee"/></td>
+                  </tr>
+                  <tr>
+                      <th>违章地点</th>
+                      <td><input type="text" name="" class="form-control" id="address"  /></td>
+                  </tr>
+                  <tr>
+                      <th>违章情况</th>
+                      <td><input type="text" name="" class="form-control" id="situation" /></td>
+                  </tr>
+                  <tr>
+                      <th>是否扣留车辆</th>
+                      <td><input type="text" name="" class="form-control" id="kouliu" /></td>
+                  </tr>
+                  <tr>
+                      <th>车辆扣留天数</th>
+                      <td><input type="text" name="" class="form-control" id="days" /></td>
+                  </tr>
+                  <tr>
+                      <th>处理状态</th>
+                      <td><input type="text" name="" class="form-control" id="state" /></td>
+                  </tr>
+                  <tr>
+                      <th>备注</th>
+                      <td><input type="text" name="" class="form-control" id="remark" /></td>
+                  </tr>
+                  <tr>
+                      <td colspan="2">
+                          <input type="reset" value="重置" class="btn btn-primary" id="reset" />
+                          <input type="button" value="添加"  class="btn btn-success" id="add"  onclick="addList()" />
+                          <input type="button" value="更新"  class="btn btn-info" id=""  onclick="update()" />
+                      </td>
+                  </tr>
+              </div>
+
+                            <style><!--不动！-->
+              /* 下拉按钮样式 */
+              .dropbtn {
+                  background-color: #444444;
+                  color: #fdf9f9;
+                  padding: 12px;
+                  font-size: 12px;
+                  border: none;
+                  cursor: pointer;
+              }
+
+              /* 容器 <div> - 需要定位下拉内容 */
+              .dropdown {
+                  position: relative;
+                  display: inline-block;
+              }
+
+              /* 下拉内容 (默认隐藏) */
+              .dropdown-content {
+                  display: none;
+                  position: center;
+                  background-color: #1a1a1a;
+                  color: #f8f2f2;
+                  font-size: 15px;
+                  min-width: 400px;
+
+              }
+
+              /* 下拉菜单的链接 */
+              .dropdown-content a {
+                  color: black;
+                  padding: 12px 16px;
+                  text-decoration: none;
+                  display: block;
+              }
+
+              /* 鼠标移上去后修改下拉菜单链接颜色 */
+              .dropdown-content a:hover {background-color: #c2c2c2
+              }
+
+              /* 在鼠标移上去后显示下拉菜单 */
+              .dropdown:hover .dropdown-content {
+                  display: block;
+              }
+
+              /* 当下拉内容显示后修改下拉按钮的背景颜色 */
+              .dropdown:hover .dropbtn {
+                  background-color: #9f9d9d;
+              }
+          </style>
+
+                            <script type="text/javascript">
+              function addList(){
+                  var oNum1 = document.getElementById('illnum').value;
+                  var oNum2 = document.getElementById('carnum').value;
+                  var oNum3 = document.getElementById('timee').value;
+                  var oNum4 = document.getElementById('address').value;
+                  var oNum5 = document.getElementById('situation').value;
+                  var oNum6 = document.getElementById('kouliu').value;
+                  var oNum7 = document.getElementById('days').value;
+                  var oNum8 = document.getElementById('state').value;
+                  var oNum9 = document.getElementById('remark').value;
+
+                  var oTr = document.createElement('tr');
+                  var oTd1 = document.createElement('td');
+                  var oInput = document.createElement('input');
+                  oTd1.appendChild(oInput);
+                  oInput.setAttribute('type','checkbox');
+                  oInput.setAttribute('name','item');
+                  oTd1.innerHTML =oNum1;
+                  var oTd2 = document.createElement('td');
+                  oTd2.innerHTML =oNum2;
+                  var oTd3 = document.createElement('td');
+                  oTd3.innerHTML = oNum3;
+                  var oTd4 = document.createElement('td');
+                  oTd4.innerHTML = oNum4;
+                  var oTd5 = document.createElement('td');
+                  oTd5.innerHTML = oNum5;
+                  var oTd6 = document.createElement('td');
+                  oTd6.innerHTML = oNum6;
+                  var oTd7 = document.createElement('td');
+                  oTd7.innerHTML = oNum7;
+                  var oTd8 = document.createElement('td');
+                  oTd8.innerHTML = oNum8;
+                  var oTd9 = document.createElement('td');
+                  oTd9.innerHTML = oNum9;
+
+                  var oTd10 = document.createElement('td');
+                  var oInput2 = document.createElement('input');
+                  var oInput3 = document.createElement('input');
+
+                  oTr.appendChild(oTd1);
+                  oTr.appendChild(oTd2);
+                  oTr.appendChild(oTd3);
+                  oTr.appendChild(oTd4);
+                  oTr.appendChild(oTd5);
+                  oTr.appendChild(oTd6);
+                  oTr.appendChild(oTd7);
+                  oTr.appendChild(oTd8);
+                  oTr.appendChild(oTd9);
+                  oTr.appendChild(oTd10);
+                  oTd10.appendChild(oInput2);
+                  oTd10.appendChild(oInput3);
+                  oInput2.setAttribute('type','button');
+                  oInput2.setAttribute('value','删除');
+                  oInput2.setAttribute('onclick','del(this)');
+                  oInput2.className = 'btn btn-danger';
+                  oInput3.setAttribute('type','button');
+                  oInput3.setAttribute('value','修改');
+                  oInput3.setAttribute('onclick','modify(this)');
+                  oInput3.className = 'btn btn-info';
+                  var olistTable = document.getElementById('listTable');
+                  olistTable.appendChild(oTr);
+              }
+              function del(obj){
+                  var oParentnode = obj.parentNode.parentNode;
+                  var olistTable = document.getElementById('listTable');
+                  olistTable.removeChild(oParentnode);
+              }
+              //修改功能
+              function modify(obj){
+
+                  var oNum1 = document.getElementById('illnum');
+                  var oNum2 = document.getElementById('carnum');
+                  var oNum3 = document.getElementById('timee');
+                  var oNum4 = document.getElementById('address');
+                  var oNum5 = document.getElementById('situation');
+                  var oNum6 = document.getElementById('kouliu');
+                  var oNum7 = document.getElementById('days');
+                  var oNum8 = document.getElementById('state');
+                  var oNum9 = document.getElementById('remark');
+
+
+                  var oTr = obj.parentNode.parentNode;
+                  var aTd = oTr.getElementsByTagName('td');
+                  rowIndex = obj.parentNode.parentNode.rowIndex;
+                  oNum1.value = aTd[0].innerHTML;
+                  oNum2.value = aTd[1].innerHTML;
+                  oNum3.value = aTd[2].innerHTML;
+                  oNum4.value = aTd[3].innerHTML;
+                  oNum5.value = aTd[4].innerHTML;
+                  oNum6.value = aTd[5].innerHTML;
+                  oNum7.value = aTd[6].innerHTML;
+                  oNum8.value = aTd[7].innerHTML;
+                  oNum9.value = aTd[8].innerHTML;
+
+                  console.log(aTd[2].innerHTML);
+                  //alert(i);
+
+              }
+              //更新功能
+              function update(){
+                  var oNum1 = document.getElementById('illnum');
+                  var oNum2 = document.getElementById('carnum');
+                  var oNum3 = document.getElementById('timee');
+                  var oNum4 = document.getElementById('address');
+                  var oNum5 = document.getElementById('situation');
+                  var oNum6 = document.getElementById('kouliu');
+                  var oNum7 = document.getElementById('days');
+                  var oNum8 = document.getElementById('state');
+                  var oNum9 = document.getElementById('remark');
+                  var oMytable = document.getElementById('mytable');
+                  //alert(rowIndex);
+                  //var aTd = rowIndex.cells;
+                  console.log(oMytable.rows[rowIndex].cells)
+                  oMytable.rows[rowIndex].cells[0].innerHTML = oNum1.value;
+                  oMytable.rows[rowIndex].cells[1].innerHTML = oNum2.value;
+                  oMytable.rows[rowIndex].cells[2].innerHTML = oNum3.value;
+                  oMytable.rows[rowIndex].cells[3].innerHTML = oNum4.value;
+                  oMytable.rows[rowIndex].cells[4].innerHTML = oNum5.value;
+                  oMytable.rows[rowIndex].cells[5].innerHTML = oNum6.value;
+                  oMytable.rows[rowIndex].cells[6].innerHTML = oNum7.value;
+                  oMytable.rows[rowIndex].cells[7].innerHTML = oNum8.value;
+                  oMytable.rows[rowIndex].cells[8].innerHTML = oNum9.value;
+              }
+              //全选
+          </script>
+
+                         </table>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">
+                            关闭
+                        </button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+
+
+
+
+
+        <h3 style="text-align: center;">未违法车辆信息</h3>
+        <!-- BEGIN ZSCG1 TABLE -->
+        <table class="table table-hover table-bordered" id="mytable1">
+            <thead>
+            <tr>
+                <th>车牌号</th>
+                <th>车主身份证号</th>
+                <th>车辆类型</th>
+                <th>是否有效</th>
+                <th>备注</th>
+                <th>操作</th>
+            </tr>
+
+            </thead>
+            <tbody id="listTable1">
+            <tr>
+                <td>川A123456</td>
+                <td>100806131234</td>
+                <td>小型车</td>
+                <td>有效</td>
+                <td>无备注</td>
+                <td>
+                    <input type="button" name="" value="删除" class="btn btn-danger" onclick="dell(this)" />
+                    <input type="button" name="" value="修改" class="btn btn-info" onclick="modifyl(this)" data-toggle="modal" data-target="#myModal1"/>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+
+        <!-- 按钮触发模态框 -->
+        <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal1">
+            未违法车辆数据修改及新增
+        </button>
+        <!-- 模态框（Modal） -->
+        <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal1"
+                                aria-hidden="true">×
+                        </button>
+                        <h4 class="modal-title" id="myModalLabel1">
+                            未违法车辆数据修改及新增
+                        </h4>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+
+                            <div class="content" >
+                                    <tr>
+                                        <th>车牌号</th>
+                                        <td><input type="text" name="" class="form-control" id="carnum1" /></td>
+                                    </tr>
+                                    <tr>
+                                        <th>车主身份证号</th>
+                                        <td><input type="text" name="" class="form-control" id="id"/></td>
+                                    </tr>
+                                    <tr>
+                                        <th>车辆类型</th>
+                                        <td><input type="text" name="" class="form-control" id="cartype"  /></td>
+                                    </tr>
+                                    <tr>
+                                        <th>是否有效</th>
+                                        <td><input type="text" name="" class="form-control" id="valid" /></td>
+                                    </tr>
+                                    <tr>
+                                        <th>备注</th>
+                                        <td><input type="text" name="" class="form-control" id="remark1" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            <input type="reset" value="重置" class="btn btn-primary" id="reset1" />
+                                            <input type="button" value="添加"  class="btn btn-success" id="add1"  onclick="addListl()" />
+                                            <input type="button" value="更新"  class="btn btn-info" id="1"  onclick="updatel()" />
+                                        </td>
+                                    </tr>
+                                </div>
+
+                            <style>
+                                /* 下拉按钮样式 */
+                                .dropbtn {
+                                    background-color: #444444;
+                                    color: #fdf9f9;
+                                    padding: 12px;
+                                    font-size: 12px;
+                                    border: none;
+                                    cursor: pointer;
+                                }
+
+                                /* 容器 <div> - 需要定位下拉内容 */
+                                .dropdown {
+                                    position: relative;
+                                    display: inline-block;
+                                }
+
+                                /* 下拉内容 (默认隐藏) */
+                                .dropdown-content {
+                                    display: none;
+                                    position: center;
+                                    background-color: #1a1a1a;
+                                    color: #f8f2f2;
+                                    font-size: 15px;
+                                    min-width: 400px;
+
+                                }
+
+                                /* 下拉菜单的链接 */
+                                .dropdown-content a {
+                                    color: black;
+                                    padding: 12px 16px;
+                                    text-decoration: none;
+                                    display: block;
+                                }
+
+                                /* 鼠标移上去后修改下拉菜单链接颜色 */
+                                .dropdown-content a:hover {background-color: #c2c2c2
+                                }
+
+                                /* 在鼠标移上去后显示下拉菜单 */
+                                .dropdown:hover .dropdown-content {
+                                    display: block;
+                                }
+
+                                /* 当下拉内容显示后修改下拉按钮的背景颜色 */
+                                .dropdown:hover .dropbtn {
+                                    background-color: #9f9d9d;
+                                }
+                            </style>
+
+                            <script type="text/javascript">
+                                function addListl(){
+                                    var oNuml1 = document.getElementById('carnum1').value;
+                                    var oNuml2 = document.getElementById('id').value;
+                                    var oNuml3 = document.getElementById('cartype').value;
+                                    var oNuml4 = document.getElementById('valid').value;
+                                    var oNuml5 = document.getElementById('remark1').value;
+
+                                    var oTrl = document.createElement('tr');
+                                    var oTdl1 = document.createElement('td');
+                                    var oInputl = document.createElement('input');
+                                    oTdl1.appendChild(oInputl);
+                                    oInputl.setAttribute('type','checkbox');
+                                    oInputl.setAttribute('name','item');
+                                    oTdl1.innerHTML =oNuml1;
+                                    var oTdl2 = document.createElement('td');
+                                    oTdl2.innerHTML =oNuml2;
+                                    var oTdl3 = document.createElement('td');
+                                    oTdl3.innerHTML = oNuml3;
+                                    var oTdl4 = document.createElement('td');
+                                    oTdl4.innerHTML = oNuml4;
+                                    var oTdl5 = document.createElement('td');
+                                    oTdl5.innerHTML = oNuml5;
+
+                                    var oTdl6 = document.createElement('td');
+                                    var oInputl2 = document.createElement('input');
+                                    var oInputl3 = document.createElement('input');
+
+                                    oTrl.appendChild(oTdl1);
+                                    oTrl.appendChild(oTdl2);
+                                    oTrl.appendChild(oTdl3);
+                                    oTrl.appendChild(oTdl4);
+                                    oTrl.appendChild(oTdl5);
+                                    oTrl.appendChild(oTdl6);
+
+                                    oTdl6.appendChild(oInputl2);
+                                    oTdl6.appendChild(oInputl3);
+                                    oInputl2.setAttribute('type','button');
+                                    oInputl2.setAttribute('value','删除');
+                                    oInputl2.setAttribute('onclick','dell(this)');
+                                    oInputl2.className = 'btn btn-danger';
+                                    oInputl3.setAttribute('type','button');
+                                    oInputl3.setAttribute('value','修改');
+                                    oInputl3.setAttribute('onclick','modifyl(this)');
+                                    oInputl3.className = 'btn btn-info';
+                                    var olistTablel = document.getElementById('listTable1');
+                                    olistTablel.appendChild(oTrl);
+
+                                }
+                                function dell(obj){
+                                    var oParentnodel = obj.parentNode.parentNode;
+                                    var olistTablel = document.getElementById('listTable1');
+                                    olistTablel.removeChild(oParentnodel);
+                                }
+                                //修改功能
+                                function modifyl(obj){
+                                    var oNuml1 = document.getElementById('carnum1');
+                                    var oNuml2 = document.getElementById('id');
+                                    var oNuml3 = document.getElementById('cartype');
+                                    var oNuml4 = document.getElementById('valid');
+                                    var oNuml5 = document.getElementById('remark1');
+
+                                    var oTrl = obj.parentNode.parentNode;
+                                    var aTdl = oTrl.getElementsByTagName('td');
+                                    rowIndex = obj.parentNode.parentNode.rowIndex;
+                                    oNuml1.value = aTdl[0].innerHTML;
+                                    oNuml2.value = aTdl[1].innerHTML;
+                                    oNuml3.value = aTdl[2].innerHTML;
+                                    oNuml4.value = aTdl[3].innerHTML;
+                                    oNuml5.value = aTdl[4].innerHTML;
+
+                                    console.log(aTdl[2].innerHTML);
+                                    //alert(i);
+
+                                }
+                                //更新功能
+                                function updatel(){
+                                    var oNuml1 = document.getElementById('carnum1');
+                                    var oNuml2 = document.getElementById('id');
+                                    var oNuml3 = document.getElementById('cartype');
+                                    var oNuml4 = document.getElementById('valid');
+                                    var oNuml5 = document.getElementById('remark1');
+                                    var oMytable = document.getElementById('mytable1');
+                                    //alert(rowIndex);
+                                    //var aTd = rowIndex.cells;
+                                    console.log(oMytable.rows[rowIndex].cells)
+                                    oMytable.rows[rowIndex].cells[0].innerHTML = oNuml1.value;
+                                    oMytable.rows[rowIndex].cells[1].innerHTML = oNuml2.value;
+                                    oMytable.rows[rowIndex].cells[2].innerHTML = oNuml3.value;
+                                    oMytable.rows[rowIndex].cells[3].innerHTML = oNuml4.value;
+                                    oMytable.rows[rowIndex].cells[4].innerHTML = oNuml5.value;
+
+                                }
+                                //全选
+                            </script>
+
+
+                            </table>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default"
+                                data-dismiss="modal">关闭
+                        </button>
+
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+
+
+        <!-- END TABLE PORTLET-->
+
+    </section>
+    <br/><br/>
+</section>
+
+<!-- Javascript Libraries -->
+<!-- jQuery -->
+<script src="js/jquery.min.js"></script> <!-- jQuery Library -->
+
+<!-- Bootstrap -->
+<script src="js/bootstrap.min.js"></script>
+
+<!-- UX -->
+<script src="js/scroll.min.js"></script> <!-- Custom Scrollbar -->
+
+<!-- Other -->
+<script src="js/calendar.min.js"></script> <!-- Calendar -->
+<script src="js/feeds.min.js"></script> <!-- News Feeds -->
+
+
+<!-- All JS functions -->
+<script src="js/functions.js"></script>
+</body>
+</html>
+

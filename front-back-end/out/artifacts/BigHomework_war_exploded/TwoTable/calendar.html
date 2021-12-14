@@ -1,626 +1,647 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		
-		<title>Pike Admin - Free Bootstrap 4 Admin Template</title>
-		<meta name="description" content="Free Bootstrap 4 Admin Theme | Pike Admin">
-		
+<!--[if IE 9 ]><html class="ie9"><![endif]-->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+        <meta name="format-detection" content="telephone=no">
+        <meta charset="UTF-8">
 
-		<!-- Favicon -->
-		<link rel="shortcut icon" href="assets/images/favicon.ico">
-		
-		<!-- Bootstrap CSS -->
-		<link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-		
-		<!-- Font Awesome CSS -->
-		<link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-		
-		<!-- Custom CSS -->
-		<link href="assets/css/style.css" rel="stylesheet" type="text/css" />
+        <meta name="description" content="Violate Responsive Admin Template">
+        <meta name="keywords" content="Super Admin, Admin, Template, Bootstrap">
 
-		<!-- Modernizr -->
-		<script src="assets/js/modernizr.min.js"></script>
-
-		<!-- jQuery -->
-		<script src="assets/js/jquery.min.js"></script>
-
-		<!-- Moment -->
-		<script src="assets/js/moment.min.js"></script>
-		
-		<!-- BEGIN CSS for this page -->
-		<link href="assets/plugins/fullcalendar/fullcalendar.min.css" rel="stylesheet" /> 
-		<style>	
-		#external-events .fc-event {
-			margin: 10px 0;
-			cursor: pointer;
-		}
-				
-		#calendar {
-			width: 100%;
-		}
-
-		.fc-event {
-		font-size: 1em;
-		border-radius: 2px;
-		border: none;
-		padding: 5px;
-		}
-		
-		.fc-day-grid-event .fc-content {
-		color: #fff;
-		}	
-		
-		.fc-button {
-		background: #eaeaea;
-		border: none;
-		color: #666b6f;
-		margin: 0 3px !important;
-		padding: 5px 12px !important;    
-		text-transform: capitalize;
-		height: auto !important;
-		box-shadow: none !important;
-		border-radius: 3px !important;    
-		}
-		
-		.fc-state-down, .fc-state-active, .fc-state-disabled {
-		background-color: #009ffc !important;
-		color: #ffffff !important;
-		text-shadow: none !important;
-		}
-		
-		.fc-toolbar h2 {
-		font-size: 20px;
-		font-weight: 600;
-		line-height: 28px;
-		text-transform: uppercase;
-		}
-		
-		.fc th.fc-widget-header {
-		background: #e6e6e6;
-		font-size: 13px;
-		text-transform: uppercase;
-		line-height: 18px;
-		padding: 10px 0px;
-		}
-		
-		.fc-unthemed th, .fc-unthemed td, .fc-unthemed thead, .fc-unthemed tbody, .fc-unthemed .fc-divider, .fc-unthemed .fc-row, .fc-unthemed .fc-popover {
-		border-color: #eff1f3;
-		}
-		</style>
-		<!-- END CSS for this page -->
-				
-</head>
-
-<body class="adminbody">
-
-<div id="main">
-
-	<!-- top bar navigation -->
-	<div class="headerbar">
-
-		<!-- LOGO -->
-        <div class="headerbar-left">
-			<a href="index.html" class="logo"><img alt="Logo" src="assets/images/logo.png" /> <span>Admin</span></a>
-        </div>
-
-        <nav class="navbar-custom">
-
-                    <ul class="list-inline float-right mb-0">
-
-						<li class="list-inline-item dropdown notif">
-                            <a class="nav-link dropdown-toggle arrow-none" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                                <i class="fa fa-fw fa-question-circle"></i>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right dropdown-arrow dropdown-arrow-success dropdown-lg">
-                                <!-- item-->
-                                <div class="dropdown-item noti-title">
-                                    <h5><small>Help and Support</small></h5>
-                                </div>
-
-                                <!-- item-->
-                                <a target="_blank" href="#" class="dropdown-item notify-item">                                    
-                                    <p class="notify-details ml-0">
-                                        <b>Do you want custom development to integrate this theme?</b>
-                                        <span>Contact Us</span>
-                                    </p>
-                                </a>
-
-                                <!-- item-->
-                                <a target="_blank" href="#" class="dropdown-item notify-item">                                    
-                                    <p class="notify-details ml-0">
-                                        <b>Do you want PHP version of the theme that save dozens of hours of work?</b>
-                                        <span>Try Pike Admin PRO</span>
-                                    </p>
-                                </a>                               
-
-                                <!-- All-->
-                                <a title="Clcik to visit Pike Admin Website" target="_blank" href="#" class="dropdown-item notify-item notify-all">
-                                    <i class="fa fa-link"></i> Visit Pike Admin Website
-                                </a>
-
-                            </div>
-                        </li>
-						
-                        <li class="list-inline-item dropdown notif">
-                            <a class="nav-link dropdown-toggle arrow-none" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                                <i class="fa fa-fw fa-envelope-o"></i><span class="notif-bullet"></span>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right dropdown-arrow dropdown-arrow-success dropdown-lg">
-                                <!-- item-->
-                                <div class="dropdown-item noti-title">
-                                    <h5><small><span class="label label-danger pull-xs-right">12</span>Contact Messages</small></h5>
-                                </div>
-
-                                <!-- item-->
-                                <a href="#" class="dropdown-item notify-item">                                    
-                                    <p class="notify-details ml-0">
-                                        <b>Jokn Doe</b>
-                                        <span>New message received</span>
-                                        <small class="text-muted">2 minutes ago</small>
-                                    </p>
-                                </a>
-
-                                <!-- item-->
-                                <a href="#" class="dropdown-item notify-item">                                    
-                                    <p class="notify-details ml-0">
-                                        <b>Michael Jackson</b>
-                                        <span>New message received</span>
-                                        <small class="text-muted">15 minutes ago</small>
-                                    </p>
-                                </a>
-
-                                <!-- item-->
-                                <a href="#" class="dropdown-item notify-item">                                    
-                                    <p class="notify-details ml-0">
-                                        <b>Foxy Johnes</b>
-                                        <span>New message received</span>
-                                        <small class="text-muted">Yesterday, 13:30</small>
-                                    </p>
-                                </a>
-
-                                <!-- All-->
-                                <a href="#" class="dropdown-item notify-item notify-all">
-                                    View All
-                                </a>
-
-                            </div>
-                        </li>
-                        
-						<li class="list-inline-item dropdown notif">
-                            <a class="nav-link dropdown-toggle arrow-none" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                                <i class="fa fa-fw fa-bell-o"></i><span class="notif-bullet"></span>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right dropdown-arrow dropdown-lg">
-								<!-- item-->
-                                <div class="dropdown-item noti-title">
-                                    <h5><small><span class="label label-danger pull-xs-right">5</span>Allerts</small></h5>
-                                </div>
-								
-                                <!-- item-->
-                                <a href="#" class="dropdown-item notify-item">
-                                    <div class="notify-icon bg-faded">
-                                        <img src="assets/images/avatars/avatar2.png" alt="img" class="rounded-circle img-fluid">
-                                    </div>
-                                    <p class="notify-details">
-                                        <b>John Doe</b>
-                                        <span>User registration</span>
-                                        <small class="text-muted">3 minutes ago</small>
-                                    </p>
-                                </a>
-
-                                <!-- item-->
-                                <a href="#" class="dropdown-item notify-item">
-                                    <div class="notify-icon bg-faded">
-                                        <img src="assets/images/avatars/avatar3.png" alt="img" class="rounded-circle img-fluid">
-                                    </div>
-                                    <p class="notify-details">
-                                        <b>Michael Cox</b>
-                                        <span>Task 2 completed</span>
-                                        <small class="text-muted">12 minutes ago</small>
-                                    </p>
-                                </a>
-
-                                <!-- item-->
-                                <a href="#" class="dropdown-item notify-item">
-                                    <div class="notify-icon bg-faded">
-                                        <img src="assets/images/avatars/avatar4.png" alt="img" class="rounded-circle img-fluid">
-                                    </div>
-                                    <p class="notify-details">
-                                        <b>Michelle Dolores</b>
-                                        <span>New job completed</span>
-                                        <small class="text-muted">35 minutes ago</small>
-                                    </p>
-                                </a>
-
-                                <!-- All-->
-                                <a href="#" class="dropdown-item notify-item notify-all">
-                                    View All Allerts
-                                </a>
-
-                            </div>
-                        </li>
-
-                        <li class="list-inline-item dropdown notif">
-                            <a class="nav-link dropdown-toggle nav-user" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                                <img src="assets/images/avatars/admin.png" alt="Profile image" class="avatar-rounded">
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right profile-dropdown">
-                                <!-- item-->
-                                <div class="dropdown-item noti-title">
-                                    <h5 class="text-overflow"><small>Hello, admin</small> </h5>
-                                </div>
-
-                                <!-- item-->
-                                <a href="pro-profile.html" class="dropdown-item notify-item">
-                                    <i class="fa fa-user"></i> <span>Profile</span>
-                                </a>
-
-                                <!-- item-->
-                                <a href="#" class="dropdown-item notify-item">
-                                    <i class="fa fa-power-off"></i> <span>Logout</span>
-                                </a>
-
-								<!-- item-->
-                                <a target="_blank" href="#" class="dropdown-item notify-item">
-                                    <i class="fa fa-external-link"></i> <span>Pike Admin</span>
-                                </a>
-                            </div>
-                        </li>
-
-                    </ul>
-
-                    <ul class="list-inline menu-left mb-0">
-                        <li class="float-left">
-                            <button class="button-menu-mobile open-left">
-								<i class="fa fa-fw fa-bars"></i>
-                            </button>
-                        </li>                        
-                    </ul>
-
-        </nav>
-
-	</div>
-	<!-- End Navigation -->
-	
- 
-	<!-- Left Sidebar -->
-	<div class="left main-sidebar">
-	
-		<div class="sidebar-inner leftscroll">
-
-			<div id="sidebar-menu">
-        
-			<ul>
-
-					<li class="submenu">
-						<a href="index.html"><i class="fa fa-fw fa-bars"></i><span> Dashboard </span> </a>
-                    </li>
-
-					<li class="submenu">
-                        <a href="charts.html"><i class="fa fa-fw fa-area-chart"></i><span> Charts </span> </a>
-                    </li>
-					
-					<li class="submenu">
-                        <a href="#"><i class="fa fa-fw fa-table"></i> <span> Tables </span> <span class="menu-arrow"></span></a>
-							<ul class="list-unstyled">
-								<li><a href="tables-basic.html">Basic Tables</a></li>
-								<li><a href="tables-datatable.html">Data Tables</a></li>
-							</ul>
-                    </li>
-										
-                    <li class="submenu">
-                        <a href="#"><i class="fa fa-fw fa-tv"></i> <span> User Interface </span> <span class="menu-arrow"></span></a>
-                            <ul class="list-unstyled">
-                                <li><a href="ui-alerts.html">Alerts</a></li>
-                                <li><a href="ui-buttons.html">Buttons</a></li>
-                                <li><a href="ui-cards.html">Cards</a></li>
-                                <li><a href="ui-carousel.html">Carousel</a></li>
-                                <li><a href="ui-collapse.html">Collapse</a></li>
-                                <li><a href="ui-icons.html">Icons</a></li>
-                                <li><a href="ui-modals.html">Modals</a></li>
-                                <li><a href="ui-tooltips.html">Tooltips and Popovers</a></li>
-                            </ul>
-                    </li>
-
-					<li class="submenu">
-                        <a href="#"><i class="fa fa-fw fa-file-text-o"></i> <span> Forms </span> <span class="menu-arrow"></span></a>
-                            <ul class="list-unstyled">
-                                <li><a href="forms-general.html">General Elements</a></li>
-								<li><a href="forms-select2.html">Select2</a></li>
-                                <li><a href="forms-validation.html">Form Validation</a></li>
-                                <li><a href="forms-text-editor.html">Text Editors</a></li>
-								<li><a href="forms-upload.html">Multiple File Upload</a></li>
-								<li><a href="forms-datetime-picker.html">Date and Time Picker</a></li>
-								<li><a href="forms-color-picker.html">Color Picker</a></li>
-                            </ul>
-                    </li>
-					
-                    <li class="submenu">
-						<a href="#" class="active"><i class="fa fa-fw fa-th"></i> <span> Plugins </span> <span class="menu-arrow"></span></a>
-                            <ul class="list-unstyled">
-                                <li><a href="star-rating.html">Star Rating</a></li>
-								<li><a href="range-sliders.html">Range Sliders</a></li>
-								<li><a href="tree-view.html">Tree View</a></li>
-								<li><a href="sweetalert.html">SweetAlert</a></li>
-								<li class="active"><a href="calendar.html">Calendar</a></li>
-								<li><a href="gmaps.html">GMaps</a></li>
-								<li><a href="counter-up.html">Counter-Up</a></li>
-                            </ul>
-                    </li>
-
-					<li class="submenu">
-                        <a href="#"><i class="fa fa-fw fa-image"></i> <span> Images and Galleries </span> <span class="menu-arrow"></span></a>
-							<ul class="list-unstyled">
-								<li><a href="media-fancybox.html"><span class="label radius-circle bg-danger float-right">cool</span> Fancybox </a></li>								
-								<li><a href="media-masonry.html">Masonry</a></li>
-								<li><a href="media-lightbox.html">Lightbox</a></li>
-								<li><a href="media-owl-carousel.html">Owl Carousel</a></li>
-								<li><a href="media-image-magnifier.html">Image Magnifier</a></li>
-								
-							</ul>
-                    </li>
-					
-                    <li class="submenu">
-                        <a href="#"><span class="label radius-circle bg-danger float-right">20</span><i class="fa fa-fw fa-copy"></i><span> Example Pages </span></a>
-                            <ul class="list-unstyled">								
-                                <li><a href="page-pricing-tables.html">Pricing Tables</a></li>
-                                <li><a target="_blank" href="page-coming-soon.html">Countdown</a></li>								
-                                <li><a href="page-invoice.html">Invoice</a></li>                        
-								<li><a href="page-login.html">Login / Register</a></li>								
-								<li><a href="page-blank.html">Blank Page</a></li>
-                            </ul>
-                    </li>
-
-					<li class="submenu">
-                        <a href="#"><span class="label radius-circle bg-primary float-right">9</span><i class="fa fa-fw fa-indent"></i><span> Menu Levels </span></a>
-                            <ul>
-								<li>
-                                    <a href="#"><span>Second Level</span></a>
-                                </li>
-                                <li class="submenu">
-                                    <a href="#"><span>Third Level</span> <span class="menu-arrow"></span> </a>
-                                        <ul style="">
-                                            <li><a href="#"><span>Third Level Item</span></a></li>
-                                            <li><a href="#"><span>Third Level Item</span></a></li>
-                                        </ul>
-                                </li>                                
-                            </ul>
-                    </li>
-
-					<li class="submenu">
-                        <a class="pro" href="#"><i class="fa fa-fw fa-star"></i><span> Pike Admin PRO </span> <span class="menu-arrow"></span></a>
-                            <ul class="list-unstyled">								
-                                <li><a target="_blank" href="#">Admin PRO features</a></li>
-								<li><a href="pro-settings.html">Settings</a></li>
-								<li><a href="pro-profile.html">My Profile</a></li>
-                                <li><a href="pro-users.html">Users</a></li>
-                                <li><a href="pro-articles.html">Articles</a></li>
-                                <li><a href="pro-categories.html">Categories</a></li>
-								<li><a href="pro-pages.html">Pages</a></li>								
-                                <li><a href="pro-contact-messages.html">Contact Messages</a></li>
-								<li><a href="pro-slider.html">Slider</a></li>
-                            </ul>
-                    </li>
-					
-            </ul>
-
-            <div class="clearfix"></div>
-
-			</div>
-        
-			<div class="clearfix"></div>
-
-		</div>
-
-	</div>
-	<!-- End Sidebar -->
-
-
-    <div class="content-page">
-	
-		<!-- Start content -->
-        <div class="content">
+        <title>Super Admin Responsive Template</title>
             
-			<div class="container-fluid">
+        <!-- CSS -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/animate.min.css" rel="stylesheet">
+        <link href="css/font-awesome.min.css" rel="stylesheet">
+        <link href="css/form.css" rel="stylesheet">
+        <link href="css/calendar.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
+        <link href="css/icons.css" rel="stylesheet">
+        <link href="css/generics.css" rel="stylesheet"> 
+    </head>
+    <body id="skin-blur-violate">
+        <header id="header" class="media">
+            <a href="" id="menu-toggle"></a> 
+            <a class="logo pull-left" href="../main/index.jsp">首页</a>
+            
+            <div class="media-body">
+                <div class="media" id="top-menu">
+                    <div class="pull-left tm-icon">
+                        <a data-drawer="messages" class="drawer-toggle" href="">
+                            <i class="sa-top-message"></i>
+                            <i class="n-count animated">5</i>
+                            <span>Messages</span>
+                        </a>
+                    </div>
+                    <div class="pull-left tm-icon">
+                        <a data-drawer="notifications" class="drawer-toggle" href="">
+                            <i class="sa-top-updates"></i>
+                            <i class="n-count animated">9</i>
+                            <span>Updates</span>
+                        </a>
+                    </div>
+                    
+                    
 
+                    <div id="time" class="pull-right">
+                        <span id="hours"></span>
+                        :
+                        <span id="min"></span>
+                        :
+                        <span id="sec"></span>
+                    </div>
 
-                        <div class="row">
-							<div class="col-xl-12">
-								<div class="breadcrumb-holder">
-                                    <h1 class="main-title float-left">Calendar</h1>
-                                    <ol class="breadcrumb float-right">
-										<li class="breadcrumb-item">Home</li>
-										<li class="breadcrumb-item active">Calendar</li>
-                                    </ol>
-                                    <div class="clearfix"></div>
+                    <div class="media-body">
+                        <input type="text" class="main-search">
+                    </div>
+                </div>
+            </div>
+        </header>
+        
+        <div class="clearfix"></div>
+        
+        <section id="main" class="p-relative" role="main">
+            
+            <!-- Sidebar -->
+            <aside id="sidebar">
+                
+                <!-- Sidbar Widgets -->
+                <div class="side-widgets overflow">
+                    <!-- Profile Menu -->
+                    <div class="text-center s-widget m-b-25 dropdown" id="profile-menu">
+                        <a href="" data-toggle="dropdown">
+                            <img class="profile-pic animated" src="img/1.jpeg" alt="">
+                        </a>
+                        <ul class="dropdown-menu profile-menu">
+                            <li><a href="">My Profile</a> <i class="icon left">&#61903;</i><i class="icon right">&#61815;</i></li>
+                            <li><a href="">Messages</a> <i class="icon left">&#61903;</i><i class="icon right">&#61815;</i></li>
+                            <li><a href="">Settings</a> <i class="icon left">&#61903;</i><i class="icon right">&#61815;</i></li>
+                            <li><a href="">Sign Out</a> <i class="icon left">&#61903;</i><i class="icon right">&#61815;</i></li>
+                        </ul>
+                        <h4 class="m-0">彭睿</h4>
+                        1255013836@qq.com
+                    </div>
+                    
+                    <!-- Calendar -->
+                    <div class="s-widget m-b-25">
+                        <div id="sidebar-calendar"></div>
+                    </div>
+                </div>
+                
+                <!-- Side Menu -->
+                <ul class="list-unstyled side-menu">
+                    <li>
+                        <a class="sa-side-home" href="index.html">
+                            <span class="menu-item">Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="sa-side-typography" href="typography.html">
+                            <span class="menu-item">Typography</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="sa-side-widget" href="content-widgets.html">
+                            <span class="menu-item">Widgets</span>
+                        </a>
+                    </li>                   
+                    <li>
+                        <a class="sa-side-table" href="tables.html">
+                            <span class="menu-item">Tables</span>
+                        </a>
+                    </li>
+                    <li class="dropdown">
+                        <a class="sa-side-form" href="">
+                            <span class="menu-item">Form</span>
+                        </a>
+                        <ul class="list-unstyled menu-item">
+                            <li><a href="form-elements.html">Basic Form Elements</a></li>
+                            <li><a href="form-components.html">Form Components</a></li>
+                            <li><a href="form-examples.html">Form Examples</a></li>
+                            <li><a href="form-validation.html">Form Validation</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="sa-side-ui" href="">
+                            <span class="menu-item">User Interface</span>
+                        </a>
+                        <ul class="list-unstyled menu-item">
+                            <li><a href="buttons.html">Buttons</a></li>
+                            <li><a href="labels.html">Labels</a></li>
+                            <li><a href="images-icons.html">Images &amp; Icons</a></li>
+                            <li><a href="alerts.html">Alerts</a></li>
+                            <li><a href="media.html">Media</a></li>
+                            <li><a href="components.html">Components</a></li>
+                            <li><a href="other-components.html">Others</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="sa-side-chart" href="charts.html">
+                            <span class="menu-item">CHARTS</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="sa-side-folder" href="file-manager.html">
+                            <span class="menu-item">File Manager</span>
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a class="sa-side-calendar" href="calendar.html">
+                            <span class="menu-item">Calendar</span>
+                        </a>
+                    </li>
+                    <li class="dropdown">
+                        <a class="sa-side-page" href="">
+                            <span class="menu-item">Pages</span>
+                        </a>
+                        <ul class="list-unstyled menu-item">
+                            <li><a href="list-view.html">List View</a></li>
+                            <li><a href="profile-page.html">Profile Page</a></li>
+                            <li><a href="messages.html">Messages</a></li>
+                            <li><a href="login.html">Login</a></li>
+                            <li><a href="404.html">404 Error</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+            </aside>
+        
+            <!-- Content -->
+            <section id="content" class="container">
+            
+                <!-- Messages Drawer -->
+                <div id="messages" class="tile drawer animated">
+                    <div class="listview narrow">
+                        <div class="media">
+                            <a href="">Send a New Message</a>
+                            <span class="drawer-close">&times;</span>
+                            
+                        </div>
+                        <div class="overflow" style="height: 254px">
+                            <div class="media">
+                                <div class="pull-left">
+                                    <img width="40" src="img/profile-pics/1.jpg" alt="">
                                 </div>
-							</div>
-						</div>
-                        <!-- end row -->
-
-
-                        <div class="row">
-							<div class="col-xs-12 col-md-4 col-lg-4 col-xl-3">
-								<div class="card-box tilebox-one noradius">
-									<div id='external-events'>
-									<h4>Draggable Events</h4>
-									<p>Drag and drop your event in the calendar</p>
-									<div class='fc-event bg-primary'>New meeting</div>
-									<div class='fc-event bg-warning'>My Event 2</div>
-									<div class='fc-event bg-danger'>My Event 3</div>
-									<div class='fc-event bg-primary'>Meeting 2</div>
-									<div class='fc-event bg-info'>Task number 2</div>
-									<p>
-										<input type='checkbox' id='drop-remove' />
-										<label for='drop-remove'>remove after drop</label>
-									</p>
-									<div class="clearfix"></div>
-									</div>
-								</div>
-							</div>	
-		
-                            <div class="col-xs-12 col-md-8 col-lg-8 col-xl-9">
-                                <div class="card-box tilebox-one noradius">
-                                    <div id="calendar"></div>
-									<div class="clearfix"></div>
-
+                                <div class="media-body">
+                                    <small class="text-muted">Nadin Jackson - 2 Hours ago</small><br>
+                                    <a class="t-overflow" href="">Mauris consectetur urna nec tempor adipiscing. Proin sit amet nisi ligula. Sed eu adipiscing lectus</a>
+                                </div>
+                            </div>
+                            <div class="media">
+                                <div class="pull-left">
+                                    <img width="40" src="img/profile-pics/2.jpg" alt="">
+                                </div>
+                                <div class="media-body">
+                                    <small class="text-muted">David Villa - 5 Hours ago</small><br>
+                                    <a class="t-overflow" href="">Suspendisse in purus ut nibh placerat Cras pulvinar euismod nunc quis gravida. Suspendisse pharetra</a>
+                                </div>
+                            </div>
+                            <div class="media">
+                                <div class="pull-left">
+                                    <img width="40" src="img/profile-pics/3.jpg" alt="">
+                                </div>
+                                <div class="media-body">
+                                    <small class="text-muted">Harris worgon - On 15/12/2013</small><br>
+                                    <a class="t-overflow" href="">Maecenas venenatis enim condimentum ultrices fringilla. Nulla eget libero rhoncus, bibendum diam eleifend, vulputate mi. Fusce non nibh pulvinar, ornare turpis id</a>
+                                </div>
+                            </div>
+                            <div class="media">
+                                <div class="pull-left">
+                                    <img width="40" src="img/profile-pics/4.jpg" alt="">
+                                </div>
+                                <div class="media-body">
+                                    <small class="text-muted">Mitch Bradberry - On 14/12/2013</small><br>
+                                    <a class="t-overflow" href="">Phasellus interdum felis enim, eu bibendum ipsum tristique vitae. Phasellus feugiat massa orci, sed viverra felis aliquet quis. Curabitur vel blandit odio. Vestibulum sagittis quis sem sit amet tristique.</a>
+                                </div>
+                            </div>
+                            <div class="media">
+                                <div class="pull-left">
+                                    <img width="40" src="img/profile-pics/1.jpg" alt="">
+                                </div>
+                                <div class="media-body">
+                                    <small class="text-muted">Nadin Jackson - On 15/12/2013</small><br>
+                                    <a class="t-overflow" href="">Ipsum wintoo consectetur urna nec tempor adipiscing. Proin sit amet nisi ligula. Sed eu adipiscing lectus</a>
+                                </div>
+                            </div>
+                            <div class="media">
+                                <div class="pull-left">
+                                    <img width="40" src="img/profile-pics/2.jpg" alt="">
+                                </div>
+                                <div class="media-body">
+                                    <small class="text-muted">David Villa - On 16/12/2013</small><br>
+                                    <a class="t-overflow" href="">Suspendisse in purus ut nibh placerat Cras pulvinar euismod nunc quis gravida. Suspendisse pharetra</a>
+                                </div>
+                            </div>
+                            <div class="media">
+                                <div class="pull-left">
+                                    <img width="40" src="img/profile-pics/3.jpg" alt="">
+                                </div>
+                                <div class="media-body">
+                                    <small class="text-muted">Harris worgon - On 17/12/2013</small><br>
+                                    <a class="t-overflow" href="">Maecenas venenatis enim condimentum ultrices fringilla. Nulla eget libero rhoncus, bibendum diam eleifend, vulputate mi. Fusce non nibh pulvinar, ornare turpis id</a>
+                                </div>
+                            </div>
+                            <div class="media">
+                                <div class="pull-left">
+                                    <img width="40" src="img/profile-pics/4.jpg" alt="">
+                                </div>
+                                <div class="media-body">
+                                    <small class="text-muted">Mitch Bradberry - On 18/12/2013</small><br>
+                                    <a class="t-overflow" href="">Phasellus interdum felis enim, eu bibendum ipsum tristique vitae. Phasellus feugiat massa orci, sed viverra felis aliquet quis. Curabitur vel blandit odio. Vestibulum sagittis quis sem sit amet tristique.</a>
+                                </div>
+                            </div>
+                            <div class="media">
+                                <div class="pull-left">
+                                    <img width="40" src="img/profile-pics/5.jpg" alt="">
+                                </div>
+                                <div class="media-body">
+                                    <small class="text-muted">Wendy Mitchell - On 19/12/2013</small><br>
+                                    <a class="t-overflow" href="">Integer a eros dapibus, vehicula quam accumsan, tincidunt purus</a>
                                 </div>
                             </div>
                         </div>
-                        <!-- end row -->
+                        <div class="media text-center whiter l-100">
+                            <a href=""><small>VIEW ALL</small></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Notification Drawer -->
+                <div id="notifications" class="tile drawer animated">
+                    <div class="listview narrow">
+                        <div class="media">
+                            <a href="">Notification Settings</a>
+                            <span class="drawer-close">&times;</span>
+                        </div>
+                        <div class="overflow" style="height: 254px">
+                            <div class="media">
+                                <div class="pull-left">
+                                    <img width="40" src="img/profile-pics/1.jpg" alt="">
+                                </div>
+                                <div class="media-body">
+                                    <small class="text-muted">Nadin Jackson - 2 Hours ago</small><br>
+                                    <a class="t-overflow" href="">Mauris consectetur urna nec tempor adipiscing. Proin sit amet nisi ligula. Sed eu adipiscing lectus</a>
+                                </div>
+                            </div>
+                            <div class="media">
+                                <div class="pull-left">
+                                    <img width="40" src="img/profile-pics/2.jpg" alt="">
+                                </div>
+                                <div class="media-body">
+                                    <small class="text-muted">David Villa - 5 Hours ago</small><br>
+                                    <a class="t-overflow" href="">Suspendisse in purus ut nibh placerat Cras pulvinar euismod nunc quis gravida. Suspendisse pharetra</a>
+                                </div>
+                            </div>
+                            <div class="media">
+                                <div class="pull-left">
+                                    <img width="40" src="img/profile-pics/3.jpg" alt="">
+                                </div>
+                                <div class="media-body">
+                                    <small class="text-muted">Harris worgon - On 15/12/2013</small><br>
+                                    <a class="t-overflow" href="">Maecenas venenatis enim condimentum ultrices fringilla. Nulla eget libero rhoncus, bibendum diam eleifend, vulputate mi. Fusce non nibh pulvinar, ornare turpis id</a>
+                                </div>
+                            </div>
+                            <div class="media">
+                                <div class="pull-left">
+                                    <img width="40" src="img/profile-pics/4.jpg" alt="">
+                                </div>
+                                <div class="media-body">
+                                    <small class="text-muted">Mitch Bradberry - On 14/12/2013</small><br>
+                                    <a class="t-overflow" href="">Phasellus interdum felis enim, eu bibendum ipsum tristique vitae. Phasellus feugiat massa orci, sed viverra felis aliquet quis. Curabitur vel blandit odio. Vestibulum sagittis quis sem sit amet tristique.</a>
+                                </div>
+                            </div>
+                            <div class="media">
+                                <div class="pull-left">
+                                    <img width="40" src="img/profile-pics/1.jpg" alt="">
+                                </div>
+                                <div class="media-body">
+                                    <small class="text-muted">Nadin Jackson - On 15/12/2013</small><br>
+                                    <a class="t-overflow" href="">Ipsum wintoo consectetur urna nec tempor adipiscing. Proin sit amet nisi ligula. Sed eu adipiscing lectus</a>
+                                </div>
+                            </div>
+                            <div class="media">
+                                <div class="pull-left">
+                                    <img width="40" src="img/profile-pics/2.jpg" alt="">
+                                </div>
+                                <div class="media-body">
+                                    <small class="text-muted">David Villa - On 16/12/2013</small><br>
+                                    <a class="t-overflow" href="">Suspendisse in purus ut nibh placerat Cras pulvinar euismod nunc quis gravida. Suspendisse pharetra</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="media text-center whiter l-100">
+                            <a href=""><small>VIEW ALL</small></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Breadcrumb -->
+                <ol class="breadcrumb hidden-xs">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Library</a></li>
+                    <li class="active">Data</li>
+                </ol>
+                
+                <h4 class="page-title">CALENDAR</h4>
+                
+                <div class="block-area">
+                    <div class="alert alert-info alert-dismissable fade in">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        Click on a Day to add an Event.
+                    </div>
+                </div>
+                
+                <div class="col-md-8 clearfix">
+                    
+                    <div id="calendar" class="p-relative p-10 m-b-20">
+                        <!-- Calendar Views -->
+                        <ul class="calendar-actions list-inline clearfix">
+                            <li class="p-r-0">
+                                <a data-view="month" href="#" class="tooltips" title="Month">
+                                    <i class="sa-list-month"></i>
+                                </a>
+                            </li>
+                            <li class="p-r-0">
+                                <a data-view="agendaWeek" href="#" class="tooltips" title="Week">
+                                    <i class="sa-list-week"></i>
+                                </a>
+                            </li>
+                            <li class="p-r-0">
+                                <a data-view="agendaDay" href="#" class="tooltips" title="Day">
+                                    <i class="sa-list-day"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <h4 class="m-l-5">Upcoming Events</h4>
+                    <div class="listview narrow">
+                        <div class="media p-l-5">
+                            <div class="pull-left">
+                                <img width="40" src="img/profile-pics/1.jpg" alt="">
+                            </div>
+                            <div class="media-body">
+                                <small class="text-muted">Today at 5:30 PM</small><br>
+                                <a class="t-overflow" href="">Cras molestie fermentum nibh, ac semper</a>
+                            </div>
+                        </div>
+                        <div class="media p-l-5">
+                            <div class="media-body">
+                                <small class="text-muted">Tomorrow at 8:56 PM</small><br>
+                                <a class="t-overflow" href="">Suspendisse in purus ut nibh placerat</a>
+                            </div>
+                        </div>
+                        <div class="media p-l-5">
+                            <div class="media-body">
+                                <small class="text-muted">13/05/2014 at 7:45 AM</small><br>
+                                <a class="t-overflow" href="">Cras pulvinar euismod nunc quis gravida. Suspendisse pharetra</a>
+                            </div>
+                        </div>
+                        <div class="media p-l-5">
+                            <div class="pull-left">
+                                <img width="40" src="img/profile-pics/2.jpg" alt="">
+                            </div>
+                            <div class="media-body">
+                                <small class="text-muted">15/05/2014 at 10:23 AM</small><br>
+                                <a class="t-overflow" href="">Integer a eros dapibus, vehicula quam accumsan, tincidunt purus</a>
+                            </div>
+                        </div>
+                        <div class="media p-l-5">
+                            <div class="pull-left">
+                                <img width="40" src="img/profile-pics/3.jpg" alt="">
+                            </div>
+                            <div class="media-body">
+                                <small class="text-muted">15/05/2014 at 11:50 AM</small><br>
+                                <a class="t-overflow" href="">Vehicula regquam accumsan, tincidunt purus</a>
+                            </div>
+                        </div>
+                        <div class="media p-l-5">
+                            <div class="media-body">
+                                <small class="text-muted">16/05/2014 at 2:40 PM</small><br>
+                                <a class="t-overflow" href="">Lim sutson seruspendisse in purus ut nibh wood</a>
+                            </div>
+                        </div>
+                        <div class="media p-l-5">
+                            <div class="media-body">
+                                <small class="text-muted">17/05/2014 at 5:23 AM</small><br>
+                                <a class="t-overflow" href="">Palwin pulvinar euismod nunc quis gravida. Pharetra</a>
+                            </div>
+                        </div>
+                        <div class="media p-l-5">
+                            <div class="media-body">
+                                <small class="text-muted">19/05/2014 at 7:23 PM</small><br>
+                                <a class="t-overflow" href="">Arena soon be cook loas nunc eisumes wentro bin</a>
+                            </div>
+                        </div>
+                        <div class="media p-l-5">
+                            <div class="pull-left">
+                                <img width="40" src="img/profile-pics/5.jpg" alt="">
+                            </div>
+                            <div class="media-body">
+                                <small class="text-muted">21/05/2014 at 10:10 AM</small><br>
+                                <a class="t-overflow" href="">Lorem regquam accumsan, tincidunt ipsum persit</a>
+                            </div>
+                        </div>
+                        <div class="media p-l-5">
+                            <div class="media-body">
+                                <small class="text-muted">23/05/2014 at 12:50 PM</small><br>
+                                <a class="t-overflow" href="">Winsoo gravity for twelve eharetra and lorem ipsum</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
+                <!-- Add event -->
+                <div class="modal fade" id="addNew-event">
+                     <div class="modal-dialog">
+                          <div class="modal-content">
+                               <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                    <h4 class="modal-title">Add an Event</h4>
+                               </div>
+                               <div class="modal-body">
+                                    <form class="form-validation" role="form">
+                                         <div class="form-group">
+                                              <label for="eventName">Event Name</label>
+                                              <input type="text" class="input-sm form-control validate[required]" id="eventName" placeholder="...">
+                                         </div>
+                                         
+                                         <input type="hidden" id="getStart" />
+                                         <input type="hidden" id="getEnd" />
+                                    </form>
+                               </div>
+                               
+                               <div class="modal-footer">
+                                    <input type="submit" class="btn btn-info btn-sm" id="addEvent" value="Add Event">
+                                    <button type="button" class="btn btn-info btn-sm" data-dismiss="modal">Close</button>
+                               </div>
+                          </div>
+                     </div>
+                </div>
+                
+                <!-- Modal Resize alert -->
+                <div class="modal fade" id="editEvent">
+                     <div class="modal-dialog">
+                          <div class="modal-content">
+                               <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                    <h4 class="modal-title">Edit Event</h4>
+                               </div>
+                               <div class="modal-body">
+                                    <div id="eventInfo"></div>
+                               </div>
+                               
+                               <div class="modal-footer">
+                                    <button type="button" class="btn btn-info btn-sm" data-dismiss="modal">Okay</button>
+                                    <button type="button" class="btn btn-info btn-sm" id="editCancel" data-dismiss="modal">Cancel</button>
+                               </div>
+                          </div>
+                     </div>
+                </div>
+                
+                <br/><br/>
+            </section>
+        </section>
+        
+        <!-- Javascript Libraries -->
+        <!-- jQuery -->
+        <script src="js/jquery.min.js"></script> <!-- jQuery Library -->
+        <script src="js/jquery-ui.min.js"></script> <!-- jQuery UI -->
 
+        <!-- Bootstrap -->
+        <script src="js/bootstrap.min.js"></script>
+        
+        <!-- UX -->
+        <script src="js/scroll.min.js"></script> <!-- Custom Scrollbar -->
+        
+        <!--  Form Related -->
+        <script src="js/validation/validate.min.js"></script> <!-- jQuery Form Validation Library -->
+        <script src="js/validation/validationEngine.min.js"></script> <!-- jQuery Form Validation Library - requirred with above js -->
+        
+        <!-- Other -->
+        <script src="js/calendar.min.js"></script> <!-- Calendar -->
+        <script src="js/feeds.min.js"></script> <!-- News Feeds -->
+        
+        
+        <!-- All JS functions -->
+        <script src="js/functions.js"></script>
+        
+        <script type="text/javascript">
+            $(document).ready(function() {
+                var date = new Date();
+                var d = date.getDate();
+                var m = date.getMonth();
+                var y = date.getFullYear();
+                $('#calendar').fullCalendar({
+                    header: {
+                         center: 'title',
+                         left: 'prev, next',
+                         right: ''
+                    },
 
+                    selectable: true,
+                    selectHelper: true,
+                    editable: true,
+                    events: [
+                        {
+                            title: 'Hangout with friends',
+                            start: new Date(y, m, 1),
+                            end: new Date(y, m, 2)
+                        },
+                        {
+                            title: 'Meeting with client',
+                            start: new Date(y, m, 10),
+                            allDay: true
+                        },
+                        {
+                            title: 'Repeat Event',
+                            start: new Date(y, m, 18),
+                            allDay: true
+                        },
+                        {
+                            title: 'Semester Exam',
+                            start: new Date(y, m, 20),
+                            end: new Date(y, m, 23)
+                        },
+                        {
+                            title: 'Soccor match',
+                            start: new Date(y, m, 5),
+                            end: new Date(y, m, 6)
+                        },
+                        {
+                            title: 'Coffee time',
+                            start: new Date(y, m, 21),
+                        },
+                        {
+                            title: 'Job Interview',
+                            start: new Date(y, m, 5),
+                        }
+                    ],
+                     
+                    //On Day Select
+                    select: function(start, end, allDay) {
+                        $('#addNew-event').modal('show');   
+                        $('#addNew-event input:text').val('');
+                        $('#getStart').val(start);
+                        $('#getEnd').val(end);
+                    },
+                     
+                    eventResize: function(event,dayDelta,minuteDelta,revertFunc) {
+                        $('#editEvent').modal('show');
 
-            </div>
-			<!-- END container-fluid -->
+                        var info =
+                            "The end date of " + event.title + "has been moved " +
+                            dayDelta + " days and " +
+                            minuteDelta + " minutes."
+                        ;
+                        
+                        $('#eventInfo').html(info);
+                
+                
+                        $('#editEvent #editCancel').click(function(){
+                             revertFunc();
+                        }) 
+                    }
+                });
+                
+                $('body').on('click', '#addEvent', function(){
+                     var eventForm =  $(this).closest('.modal').find('.form-validation');
+                     eventForm.validationEngine('validate');
+                     
+                     if (!(eventForm).find('.formErrorContent')[0]) {
+                          
+                          //Event Name
+                          var eventName = $('#eventName').val();
 
-		</div>
-		<!-- END content -->
-
-    </div>
-	<!-- END content-page -->
-    
-	<footer class="footer">
-		<span class="text-right">
-		Copyright <a target="_blank" href="#">Pike Admin</a>
-		</span>
-		<span class="float-right">
-		More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a>
-		</span>
-	</footer>
-
-</div>
-<!-- END main -->
-
-<script src="assets/js/popper.min.js"></script>
-<script src="assets/js/bootstrap.min.js"></script>
-
-<script src="assets/js/detect.js"></script>
-<script src="assets/js/fastclick.js"></script>
-<script src="assets/js/jquery.blockUI.js"></script>
-<script src="assets/js/jquery.nicescroll.js"></script>
-
-<!-- App js -->
-<script src="assets/js/pikeadmin.js"></script>
-
-<!-- BEGIN Java Script for this page -->
-<script src="assets/js/jquery-ui.min.js"></script>
-<script src="assets/plugins/fullcalendar/fullcalendar.min.js"></script>
-<script>
-$(document).ready(function() {
-	
-		/* initialize the external events
-		-----------------------------------------------------------------*/
-		$('#external-events .fc-event').each(function() {
-
-			// store data so the calendar knows to render an event upon drop
-			$(this).data('event', {
-				title: $.trim($(this).text()), // use the element's text as the event title
-				stick: true // maintain when user navigates (see docs on the renderEvent method)
-			});
-
-			// make the event draggable using jQuery UI
-			$(this).draggable({
-				zIndex: 999,
-				revert: true,      // will cause the event to go back to its
-				revertDuration: 0  //  original position after the drag
-			});
-
-		});
-
-		/* initialize the calendar
-		-----------------------------------------------------------------*/
-		var date = new Date();
-		var d    = date.getDate();
-        m    = date.getMonth();
-        y    = date.getFullYear();
-		
-		$('#calendar').fullCalendar({
-			header: {
-				left: 'prev,next today',
-				center: 'title',
-				right: 'month,agendaWeek,agendaDay'
-			},
-			selectable: true,
-			selectHelper: true,
-			select: function(start, end) {
-				var title = prompt('Event Title:');
-				var eventData;
-				if (title) {
-					eventData = {
-						title: title,
-						start: start,
-						end: end
-					};
-					$('#calendar').fullCalendar('renderEvent', eventData, true); // stick? = true
-				}
-				$('#calendar').fullCalendar('unselect');
-			},
-			editable: true,
-			eventLimit: true, // allow "more" link when too many events
-			events: [
-					{
-					  title          : 'All Day Event',
-					  start          : new Date(y, m, 2),
-					  className: 'bg-primary',
-					},
-					{
-					  title          : 'Long Event',
-					  start          : new Date(y, m, d - 4),
-					  end            : new Date(y, m, d - 2),
-					  className: 'bg-info',
-					},
-					{
-					  title          : 'Meeting John',
-					  start          : new Date(y, m, d, 15, 20),
-					  allDay         : false,
-					  className: 'bg-primary',
-					},
-					{
-					  title          : 'New Task',
-					  start          : new Date(y, m, d, 12, 0),
-					  end            : new Date(y, m, d, 16, 0),
-					  allDay         : false,
-					  className: 'bg-danger',
-					},
-					{
-					  title          : 'Birthday Party',
-					  start          : new Date(y, m, d + 2, 15, 0),
-					  end            : new Date(y, m, d + 2, 20, 40),
-					  allDay         : false,
-					  className: 'bg-warning',
-					},
-					{
-					  title          : 'Alice Birthday',
-					  start          : new Date(y, m, d + 4, 15, 0),
-					  end            : new Date(y, m, d + 4, 18, 30),
-					  allDay         : false,
-					  className: 'bg-info',
-					},
-					{
-					  title          : 'Click for Google',
-					  start          : new Date(y, m, 27),
-					  end            : new Date(y, m, 28),
-					  url            : 'http://google.com/',
-					  className: 'bg-danger', 
-					}
-				
-			],
-			droppable: true, // this allows things to be dropped onto the calendar
-			drop: function() {
-		
-				if ($('#drop-remove').is(':checked')) {
-					// if so, remove the element from the "Draggable Events" list
-					$(this).remove();
-				}
-			}
-		});
-});
-</script>
-<!-- END Java Script for this page -->
-
-</body>
+                          //Render Event
+                          $('#calendar').fullCalendar('renderEvent',{
+                               title: eventName,
+                               start: $('#getStart').val(),
+                               end:  $('#getEnd').val(),
+                               allDay: true,
+                          },true ); //Stick the event
+                          
+                          $('#addNew-event form')[0].reset()
+                          $('#addNew-event').modal('hide');
+                     } 
+                });   
+            });    
+            
+            //Calendar views
+            $('body').on('click', '.calendar-actions > li > a', function(e){
+                e.preventDefault();
+                var dataView = $(this).attr('data-view');
+                $('#calendar').fullCalendar('changeView', dataView);
+                
+                //Custom scrollbar
+                var overflowRegular, overflowInvisible = false;
+                overflowRegular = $('.overflow').niceScroll();     
+            });                    
+            
+       </script>
+    </body>
 </html>
+
